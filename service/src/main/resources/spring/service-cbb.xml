@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:osgix="http://www.springframework.org/schema/osgi-compendium"
+    xmlns:ctx="http://www.springframework.org/schema/context" xmlns:oms="http://www.huawei.com/schema/oms"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+	 http://www.springframework.org/schema/beans 
+	 http://www.springframework.org/schema/beans/spring-beans.xsd
+	 http://www.springframework.org/schema/osgi
+	 http://www.springframework.org/schema/osgi/spring-osgi.xsd
+	 http://www.springframework.org/schema/context 
+	 http://www.springframework.org/schema/context/spring-context.xsd
+	 http://www.springframework.org/schema/osgi-compendium 
+	 http://www.springframework.org/schema/osgi-compendium/spring-osgi-compendium.xsd
+	 http://www.springframework.org/schema/aop
+	 http://www.springframework.org/schema/aop/spring-aop.xsd
+	 http://www.huawei.com/schema/oms
+	 http://www.huawei.com/schema/oms/oms.xsd">
+
+    <context:component-scan base-package="org.openo.sdno.overlayvpn" />
+
+    <bean id="invDAOImpl" class="org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.PuerInvDAOImpl">
+        <!--<property name="puerObjInvService" ref="puerInvServiceNbiBean"></property>-->
+        <!--<property name="puerRelationService" ref="puerInvRelationNbiBean"></property>-->
+    </bean>
+    
+   
+
+    <!--Object Puer Operation -->
+    <bean id="puerInvServiceNbiBean" class="org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.nbi.PuerInvServiceNbiBean"></bean>
+
+    <!--Relation Puer Relation -->
+    <bean id="puerInvRelationNbiBean" class="org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.nbi.PuerInvRelationNbiBean"></bean>
+
+    <bean id="invServicesImpl" class="org.openo.sdno.overlayvpn.inventory.sdk.impl.persis.puer.PuerInvServicesImpl"></bean>
+
+    <bean id="restIntercepter" class="org.openo.sdno.overlayvpn.security.interceptor.RestfulProxyInterceptor"></bean>
+
+    <bean id="OverlayVpnComplexDao" class="org.openo.sdno.overlayvpn.dao.overlayvpn.OverlayVpnComplexDao"></bean>
+
+    <bean id="ControllerDao" class="org.openo.sdno.overlayvpn.brs.invdao.ControllerDao"></bean>
+    
+    <bean id="inventoryDao" class="org.openo.sdno.overlayvpn.dao.common.InventoryDao">
+        <property name="invDao" ref="invDAOImpl"></property>
+        <property name="invService" ref="invServicesImpl"></property>
+    </bean>
+   
+    
+</beans>
