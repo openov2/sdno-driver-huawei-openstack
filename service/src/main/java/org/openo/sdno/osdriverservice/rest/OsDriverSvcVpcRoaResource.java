@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -30,10 +30,9 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.http.HttpStatus;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.osdriverservice.model.OsSubnet;
-import org.openo.sdno.osdriverservice.model.OsVpc;
-import org.openo.sdno.osdriverservice.service.VpcService;
-import org.openo.sdno.osdriverservice.service.inf.IVpcService;
+import org.openo.sdno.osdriverservice.nbi.VpcNbiService;
+import org.openo.sdno.osdriverservice.sbi.model.OsSubnet;
+import org.openo.sdno.osdriverservice.sbi.model.OsVpc;
 import org.openo.sdno.osdriverservice.util.MigrateModelUtil;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Subnet;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Vpc;
@@ -42,7 +41,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Restful interface class for OS driver VPC.<br/>
+ * Restful interface class for OS driver VPC.<br>
  *
  * @author
  * @version SDNO 0.5 2016-6-23
@@ -57,10 +56,10 @@ public class OsDriverSvcVpcRoaResource {
 
     private static final String EXIT_LOG = "Exit. cost time = ";
 
-    IVpcService service = new VpcService();
+    VpcNbiService service = new VpcNbiService();
 
     /**
-     * Create Vpc.<br/>
+     * Create Vpc.<br>
      * 
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
@@ -87,7 +86,7 @@ public class OsDriverSvcVpcRoaResource {
         vpc.setExternalIp(osVpc.getGatewayIp());
         vpc.setAttributes(new Vpc.UnderlayResources());
         vpc.getAttributes().setRouterId(osVpc.getAttributes().getRouterId());
-
+        vpc.getAttributes().setProjectId(osVpc.getAttributes().getProjectId());
         if(response != null) {
             response.setStatus(HttpStatus.SC_CREATED);
         }
@@ -98,7 +97,7 @@ public class OsDriverSvcVpcRoaResource {
     }
 
     /**
-     * Delete VPC.<br/>
+     * Delete VPC.<br>
      * 
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
@@ -129,7 +128,7 @@ public class OsDriverSvcVpcRoaResource {
     }
 
     /**
-     * Create Subnet.<br/>
+     * Create Subnet.<br>
      * 
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
@@ -155,7 +154,9 @@ public class OsDriverSvcVpcRoaResource {
         osSubnet = this.service.createSubnet(ctrlUuid, subnet.getVpcId(), osSubnet);
         subnet.setAdminStatus(osSubnet.getAdminStatus());
         subnet.setGatewayIp(osSubnet.getGatewayIp());
-
+        subnet.setAttributes(new Subnet.UnderlayResources());
+        subnet.getAttributes().setNetworkId(osSubnet.getAttributes().getVpcNetworkId());
+        subnet.getAttributes().setSubnetId(osSubnet.getAttributes().getVpcSubnetId());
         if(response != null) {
             response.setStatus(HttpStatus.SC_CREATED);
         }
@@ -166,7 +167,7 @@ public class OsDriverSvcVpcRoaResource {
     }
 
     /**
-     * Delete subnet<br/>
+     * Delete subnet<br>
      * 
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object

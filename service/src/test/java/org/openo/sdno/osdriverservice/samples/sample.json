@@ -1,0 +1,10 @@
+{
+    "controllerId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5141",
+    "overlayId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5144",
+    "overlayType": "VPC",
+    "underlayId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5143",
+    "underlayTenantId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5142",
+    "underlayType": "networkId",
+    "id": "9b00d6b0-6c93-4ca5-9747-b8ade7bb514f",
+    "action": "c"
+}

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2016, Huawei Technologies Co., Ltd.
+ * Copyright 2016 Huawei Technologies Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,7 +16,9 @@
 
 package org.openo.sdno.osdriverservice.rest;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
@@ -30,10 +32,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.osdriverservice.model.adapter.NetIpSecModel;
-import org.openo.sdno.osdriverservice.service.IpSecService;
-import org.openo.sdno.osdriverservice.service.inf.IIpSecService;
-import org.openo.sdno.osdriverservice.util.ModelConvertUtil;
+import org.openo.sdno.osdriverservice.nbi.IpSecNbiService;
+import org.openo.sdno.osdriverservice.openstack.client.model.enums.IpSecVpnStatus;
+import org.openo.sdno.osdriverservice.sbi.model.OsIpSec;
+import org.openo.sdno.osdriverservice.util.MigrateModelUtil;
 import org.openo.sdno.overlayvpn.errorcode.ErrorCode;
 import org.openo.sdno.overlayvpn.model.netmodel.ipsec.DcGwIpSecConnection;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
@@ -43,7 +45,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
- * Restful interface class for OS driver.<br/>
+ * Restful interface class for OS driver.<br>
  *
  * @author
  * @version SDNO 0.5 2016-6-23
@@ -54,10 +56,9 @@ public class OsDriverSvcIpSecRoaResource {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OsDriverSvcIpSecRoaResource.class);
 
-    IIpSecService service = new IpSecService();
-
+    IpSecNbiService service = new IpSecNbiService();
     /**
-     * Create IpSec connection.<br/>
+     * Create IpSec connection.<br>
      * 
      * @param request HttpServletRequest Object
      * @param ctrlUuidParam Controller Id Parameter
@@ -77,25 +78,20 @@ public class OsDriverSvcIpSecRoaResource {
         String ctrlUuid = ctrlUuidParam.substring(ctrlUuidParam.indexOf('=') + 1);
 
         for(DcGwIpSecConnection dcGwIpSecConn : dcGwIpSecConnList) {
-            ValidationUtil.validateModel(dcGwIpSecConn);
+            //ValidationUtil.validateModel(dcGwIpSecConn);
 
-            NetIpSecModel netIpSecModel = ModelConvertUtil.convertFromIpsecService(dcGwIpSecConn);
-
-            ResultRsp<NetIpSecModel> createRsp =
-                    service.createIpSec(dcGwIpSecConn, netIpSecModel, ctrlUuid, dcGwIpSecConn.getUuid());
-            if(!createRsp.isSuccess()) {
-                LOGGER.error("Create IpSec error.");
-                return new ResultRsp<List<DcGwIpSecConnection>>(createRsp, dcGwIpSecConnList);
-            }
+            OsIpSec osIpSec = MigrateModelUtil.convert(dcGwIpSecConn);
+            osIpSec = this.service.createIpSec(ctrlUuid, osIpSec);
+            dcGwIpSecConn.setOperStatus(statusMap.get(osIpSec.getVpnIpSecSiteConnection().getStatus()));
         }
 
         LOGGER.info("Exit create method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
-        return new ResultRsp<List<DcGwIpSecConnection>>(ErrorCode.OVERLAYVPN_SUCCESS, dcGwIpSecConnList);
+        return new ResultRsp<>(ErrorCode.OVERLAYVPN_SUCCESS, dcGwIpSecConnList);
     }
 
     /**
-     * Delete IpSec connection.<br/>
+     * Delete IpSec connection.<br>
      * 
      * @param request HttpServletRequest Object
      * @param ctrlUuidParam Controller Id Parameter
@@ -114,10 +110,19 @@ public class OsDriverSvcIpSecRoaResource {
         long infterEnterTime = System.currentTimeMillis();
         String ctrlUuid = ctrlUuidParam.substring(ctrlUuidParam.indexOf('=') + 1);
 
-        ResultRsp<String> result = service.deleteIpSec(ipSecConnId, ctrlUuid);
+        this.service.deleteIpSec(ctrlUuid, ipSecConnId);
 
         LOGGER.info("Exit delete method. cost time = " + (System.currentTimeMillis() - infterEnterTime));
 
-        return result;
+        return new ResultRsp<>();
+    }
+    
+
+    private static Map<String, String> statusMap = new HashMap<>();
+    static {
+        statusMap.put(IpSecVpnStatus.ACTIVE.getName(), "up");
+        statusMap.put(IpSecVpnStatus.DOWN.getName(), "down");
+        statusMap.put(IpSecVpnStatus.PENDING_CREATE.getName(), "down");
+        statusMap.put(IpSecVpnStatus.ERROR.getName(), "none");
     }
 }

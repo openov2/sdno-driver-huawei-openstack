@@ -1,0 +1,48 @@
+{"ikepolicy": {
+    "phase1_negotiation_mode": "main",
+    "auth_algorithm": "sha1",
+    "encryption_algorithm": "aes-128",
+    "pfs": "group5",
+    "lifetime": {
+        "units": "seconds",
+        "value": 7200
+    },
+    "ike_version": "v1",
+    "name": "sdno_ikepolicy",
+    "tenant_id": "9f511e4cf1084c0fa24957247304f138"
+},
+"ipsecpolicy": {
+    "name": "sdno_ipsecpolicy",
+    "transform_protocol": "esp",
+    "auth_algorithm": "sha1",
+    "encapsulation_mode": "tunnel",
+    "encryption_algorithm": "aes-128",
+    "pfs": "group5",
+    "lifetime": {
+        "units": "seconds",
+        "value": 7200
+    },
+     "tenant_id": "9f511e4cf1084c0fa24957247304f138"
+},
+"vpnservice": {
+    "router_id": "6fc00cf5-ff29-4f45-a8a6-f03d73674490",
+    "name": "sdno_myservice",
+    "admin_state_up": true,
+    "subnet_id": null,
+     "tenant_id": "9f511e4cf1084c0fa24957247304f138"
+},
+"ipsec_site_connection": {
+    "psk": "secret",
+    "initiator": "bi-directional",
+    "ipsecpolicy_id": null,
+    "admin_state_up": true,
+    "mtu": "1500",
+    "ikepolicy_id": null,
+    "vpnservice_id": null,
+    "peer_address": "10.21.0.1",
+    "peer_id": "10.21.0.254",
+    "peer_cidrs": ["10.21.0.0/24"],
+    "name": "sdno_vpnconnection",
+     "tenant_id": "9f511e4cf1084c0fa24957247304f138"
+}
+}
