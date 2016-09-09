@@ -1,0 +1,37 @@
+{
+    "request": {
+        "uri": "/org.openo.sdno.osdriverservice/openoapi/sbi-vpc/v1/vpcs",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=TEST"
+        },
+        "json": {
+            "name": "default/project4",
+            "description": "test vpc",
+            "status": "Creating",
+            "statusReason": null,
+            "externalIp": null,
+            "osControllerId": "TEST",
+            "createdAt": null,
+            "updatedAt": null,
+            "attributes": null,
+            "id": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5123"
+        }
+    },
+    "response": {
+        "status": 201,
+        "json": {
+            "name": "default/project4",
+            "description": "test vpc",
+            "status": "Creating",
+            "statusReason": null,
+            "externalIp": "172.24.4.3",
+            "osControllerId": "TEST",
+            "createdAt": null,
+            "updatedAt": null,
+            "attributes": null,
+            "id": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5123"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "request": {
+        "uri": "/org.openo.sdno.osdriverservice/openoapi/sbi-vpc/v1/vpcs/9b00d6b0-6c93-4ca5-9747-b8ade7bb514fs",
+        "method": "delete",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=TEST"
+        }
+    },
+    "response": {
+        "status": 204,
+        "json": null
+    }
+}

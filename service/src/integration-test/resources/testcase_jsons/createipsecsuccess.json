@@ -1,0 +1,119 @@
+{
+    "request": {
+        "uri": "/openoapi/sbi-ipsec/v1/dc-gateway/batch-create-ipsecs",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8",
+            "X-Driver-Parameter": "extSysID=ctrlid1024"
+        },
+        "json": [
+            {
+                "tenantId": "tenantId1",
+                "name": "name",
+                "description": "description",
+                "modifyMask": "NOMODIFY",
+                "operStatus": "none",
+                "adminStatus": "none",
+                "createTime": "createTime",
+                "controllerId": "controllerId",
+                "sourceAddress": "1.1.1.1/8",
+                "topoRole": "hub",
+                "peerAddress": "2.2.2.2/8",
+                "authMode": "PSK",
+                "psk": "psk",
+                "ikePolicy": {
+                    "tenantId": "tenantId1",
+                    "name": null,
+                    "description": null,
+                    "modifyMask": "NOMODIFY",
+                    "authAlgorithm": "sha1",
+                    "encryptionAlgorithm": "aes-128",
+                    "pfs": "Group5",
+                    "lifeTime": "3600",
+                    "ikeVersion": "v1",
+                    "id": "7b347d20-6fa3-4e22-b744-c49ee235a123"
+                },
+                "ipSecPolicy": {
+                    "tenantId": "tenantId1",
+                    "name": null,
+                    "description": null,
+                    "modifyMask": "NOMODIFY",
+                    "authAlgorithm": "sha1",
+                    "encryptionAlgorithm": "aes-128",
+                    "pfs": "Group5",
+                    "lifeTime": "3600",
+                    "transformProtocol": "esp",
+                    "encapsulationMode": "tunnel",
+                    "id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5"
+                },
+                "subnetId": "subnetId",
+                "routerId": "routerId",
+                "peerSubnetCidrs": "peerSubnetCidrs",
+                "vpcId": "vpcId",
+                "id": "7b347d20-6fa3-4e22-b744-c49ee235a123"
+            }
+        ]
+    },
+    "response": {
+        "status": 200,
+        "json": {
+            "errorCode": "overlayvpn.operation.success",
+            "data": [
+                {
+                    "tenantId": "tenantId1",
+                    "name": "name",
+                    "description": "description",
+                    "modifyMask": "NOMODIFY",
+                    "operStatus": "none",
+                    "adminStatus": "none",
+                    "createTime": "createTime",
+                    "controllerId": "controllerId",
+                    "sourceAddress": "1.1.1.1/8",
+                    "topoRole": "hub",
+                    "peerAddress": "2.2.2.2/8",
+                    "authMode": "PSK",
+                    "psk": "psk",
+                    "ikePolicy": {
+                        "tenantId": "tenantId1",
+                        "name": null,
+                        "description": null,
+                        "modifyMask": "NOMODIFY",
+                        "authAlgorithm": "sha1",
+                        "encryptionAlgorithm": "aes-128",
+                        "pfs": "Group5",
+                        "lifeTime": "3600",
+                        "ikeVersion": "v1",
+                        "id": "7b347d20-6fa3-4e22-b744-c49ee235a123"
+                    },
+                    "ipSecPolicy": {
+                        "tenantId": "tenantId1",
+                        "name": null,
+                        "description": null,
+                        "modifyMask": "NOMODIFY",
+                        "authAlgorithm": "sha1",
+                        "encryptionAlgorithm": "aes-128",
+                        "pfs": "Group5",
+                        "lifeTime": "3600",
+                        "transformProtocol": "esp",
+                        "encapsulationMode": "tunnel",
+                        "id": "22b8abdc-e822-45b3-90dd-f2c8512acfa5"
+                    },
+                    "subnetId": "subnetId",
+                    "routerId": "routerId",
+                    "peerSubnetCidrs": "peerSubnetCidrs",
+                    "vpcId": "vpcId",
+                    "id": "7b347d20-6fa3-4e22-b744-c49ee235a123"
+                }
+            ],
+            "descArg": "",
+            "reasonArg": "",
+            "detailArg": "",
+            "adviceArg": "",
+            "httpCode": 200,
+            "message": "",
+            "smallErrorCodeList": null,
+            "successed": null,
+            "fail": null
+        }
+    }
+}

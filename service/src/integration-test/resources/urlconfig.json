@@ -1,0 +1,42 @@
+[
+    {
+        "url": "/sdnomss/v1/buckets",
+        "prefix": "/org.openo.sdno.mss.service"
+    },
+    {
+        "url": "/sdnobrs/v1",
+        "prefix": "/org.openo.sdno.brs"
+    },
+    {
+        "url": "/sbi-ipsec/v1",
+        "prefix": ""
+    },
+    {
+        "url": "/sbi-vpc/v1",
+        "prefix": ""
+    },
+    {
+        "url": "/rest/commparammgmt/v1/access-objects",
+        "prefix": ""
+    },
+    {
+        "url": "/v3/auth/tokens",
+        "prefix": ""
+    },
+    {
+        "url": "/vpn/ikepolicies",
+        "prefix": ""
+    },
+    {
+        "url": "/vpn/ipsecpolicies",
+        "prefix": ""
+    },
+    {
+        "url": "/vpn/vpnservices",
+        "prefix": ""
+    },
+    {
+        "url": "/vpn/ipsec-site-connections",
+        "prefix": ""
+    }
+]

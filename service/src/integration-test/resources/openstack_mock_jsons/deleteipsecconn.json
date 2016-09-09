@@ -1,0 +1,14 @@
+{
+    "request": {
+        "uri": "/v2.0/vpn/ipsec-site-connections/7b347d20-6fa3-4e22-b744-c49ee235a124",
+        "method": "delete",
+        "headers": {
+            "Content-Type": "application/json;charset=UTF-8"
+        },
+        "json": null
+    },
+    "response": {
+        "status": 200,
+        "json": null
+    }
+}
