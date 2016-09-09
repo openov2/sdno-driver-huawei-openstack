@@ -30,8 +30,10 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
+import org.openo.sdno.osdriverservice.openstack.mock.OpenStackSuccessMockServer;
 import org.openo.sdno.osdriverservice.rest.OsDriverSvcIpSecRoaResource;
 import org.openo.sdno.osdriverservice.rest.OsDriverSvcVpcRoaResource;
 import org.openo.sdno.osdriverservice.samples.Utils;
@@ -70,15 +72,15 @@ public class EndToEndRestTest {
 
     public void verifyOSDDirect() throws ServiceException {
         try {
-            String vpcJson = Utils.getSampleJson(EndToEndRestTest.class, "sample_vpc.json");
+            String vpcJson = Utils.getSampleJson("sample_vpc.json");
             OsDriverSvcVpcRoaResource rsc = new OsDriverSvcVpcRoaResource();
             OsDriverSvcIpSecRoaResource rscIpSec = new OsDriverSvcIpSecRoaResource();
             Vpc vpc = rsc.createVpc(null, null, "TEST", JsonUtil.fromJson(vpcJson, Vpc.class));
 
-            String subnetJson = Utils.getSampleJson(EndToEndRestTest.class, "sample_subnet.json");
+            String subnetJson = Utils.getSampleJson("sample_subnet.json");
             Subnet subnet = rsc.createSubnet(null, null, "TEST", JsonUtil.fromJson(subnetJson, Subnet.class));
             
-            String ipsecJson = Utils.getSampleJson(EndToEndRestTest.class, "sample_ipsec.json");
+            String ipsecJson = Utils.getSampleJson("sample_ipsec.json");
             List <DcGwIpSecConnection> ipSecCons = new ArrayList<>();
             DcGwIpSecConnection ipSecCon = JsonUtil.fromJson(ipsecJson, DcGwIpSecConnection.class);
             ipSecCon.setTenantId(vpc.getAttributes().getProjectId());
@@ -93,7 +95,6 @@ public class EndToEndRestTest {
             rsc.deleteSubnet(null, null, "TEST", subnet.getUuid());
             rsc.deleteVpc(null, null, "TEST", vpc.getUuid());
         } catch(IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
@@ -122,6 +123,20 @@ public class EndToEndRestTest {
 
         Vpc vpc = JsonUtil.fromJson(vpcJson, Vpc.class);
         this.delete("/sbi-vpc/v1/vpcs/" + vpc.getUuid());
+    }
+
+    //@Test
+    public void verifyDirect() throws ServiceException {
+        OpenStackSuccessMockServer server = new OpenStackSuccessMockServer();
+        EndToEndRestTest verify = new EndToEndRestTest();
+        try {
+            server.start();
+            verify.verifyOSDDirect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            server.stop();
+        }
     }
 
     public static void main(String[] args) {

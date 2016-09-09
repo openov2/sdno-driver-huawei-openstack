@@ -16,6 +16,7 @@
 
 package org.openo.sdno.osdriverservice.samples;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
@@ -24,6 +25,11 @@ public class Utils {
 
     public static String getSampleJson(@SuppressWarnings("rawtypes") Class clz, String fileName) throws IOException {
         String json = IOUtils.toString(clz.getResourceAsStream(fileName));
+        return json;
+    }
+    
+    public static String getSampleJson(String fileName) throws IOException {
+        String json = IOUtils.toString(new FileInputStream("src/test/resources/" + fileName));
         return json;
     }
 }
