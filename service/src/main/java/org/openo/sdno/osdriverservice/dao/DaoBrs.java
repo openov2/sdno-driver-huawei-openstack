@@ -128,11 +128,16 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao{
 
         return new OpenStackCredentials().setIp(controller.getHostName()).setPort(authInfo.getPort())
                 .setUsername(authInfo.getUserName()).setPassword(authInfo.getPassword())
-                .setDomain("default");
+                .setDomain(authInfo.getExtra().get("domain"));
     }
 
     @Override
     public String getOpenStackRegion(String ctrlUuid) throws ServiceException {
-        return "RegionOne";
+        ControllerMO controller = (new ControllerDao()).getController(ctrlUuid);
+
+        List<CommParamMO> commPrarmList = (new CommParamDao()).getCommParam(controller.getObjectId());
+        AuthInfo authInfo = commPrarmList.get(0).getAuthInfo();
+
+        return authInfo.getExtra().get("region");
     }
 }
