@@ -1,0 +1,8 @@
+{
+    "name": "osdriverdb",
+    "owner": "osdriverSvc",
+    "authorization": "private",
+    "allowread": [
+        "osdriverSvc"
+    ]
+}

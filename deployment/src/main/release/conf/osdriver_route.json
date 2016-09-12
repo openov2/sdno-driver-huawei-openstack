@@ -1,0 +1,14 @@
+{
+    "service":{
+        "name":"osdriverservice",
+        "url": ["/openapi/sbi-[vpc|ipsec]"],
+        "instance":
+        [
+            {
+                "name":"osdriverservice-0-0",
+                "ip":"127.0.0.1",
+                "port": 9081
+            }
+        ]
+    }
+}
