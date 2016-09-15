@@ -59,7 +59,7 @@ public class OsDriverSvcIpSecRoaResource {
     IpSecNbiService service = new IpSecNbiService();
     /**
      * Create IpSec connection.<br>
-     * 
+     *
      * @param request HttpServletRequest Object
      * @param ctrlUuidParam Controller Id Parameter
      * @param dcGwIpSecConnList List of IpSec connections
@@ -92,7 +92,7 @@ public class OsDriverSvcIpSecRoaResource {
 
     /**
      * Delete IpSec connection.<br>
-     * 
+     *
      * @param request HttpServletRequest Object
      * @param ctrlUuidParam Controller Id Parameter
      * @param ipSecConnId IpSec connection id
@@ -116,7 +116,7 @@ public class OsDriverSvcIpSecRoaResource {
 
         return new ResultRsp<>();
     }
-    
+
 
     private static Map<String, String> statusMap = new HashMap<>();
     static {

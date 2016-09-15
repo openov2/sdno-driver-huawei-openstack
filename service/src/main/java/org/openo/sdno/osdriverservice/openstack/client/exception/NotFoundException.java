@@ -33,7 +33,7 @@ public class NotFoundException extends OpenStackException {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @param message exception message.
      * @since SDNO 0.5
      */

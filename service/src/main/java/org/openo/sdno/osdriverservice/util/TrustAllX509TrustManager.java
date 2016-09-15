@@ -22,7 +22,7 @@ import javax.net.ssl.X509TrustManager;
 
 /**
  * Class of X509TrustManager.<br>
- * 
+ *
  * @author
  * @version SDNO 0.5 2016-08-22
  */

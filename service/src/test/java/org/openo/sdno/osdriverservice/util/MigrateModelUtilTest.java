@@ -50,7 +50,7 @@ public class MigrateModelUtilTest {
         ikePolicy.setIkeVersion("ikeVersion");
         ikePolicy.setPfs("pfs");
         dcGwIpSecConnection.setIkePolicy(ikePolicy);
-        
+
         IpSecPolicy ipSecPolicy = new IpSecPolicy();
         ipSecPolicy.setLifeTime("7200");
         ipSecPolicy.setName("name");
@@ -62,7 +62,7 @@ public class MigrateModelUtilTest {
         ipSecPolicy.setTransformProtocol("transformProtocol");
         ipSecPolicy.setPfs("pfs");
         dcGwIpSecConnection.setIpSecPolicy(ipSecPolicy);
-        
+
         dcGwIpSecConnection.setRouterId("routerId");
         dcGwIpSecConnection.setVpcId("vpcId");
         dcGwIpSecConnection.setTenantId("tenantId");
@@ -73,31 +73,31 @@ public class MigrateModelUtilTest {
         org.openo.sdno.osdriverservice.sbi.model.OsIpSec osIpSec = MigrateModelUtil.convert(dcGwIpSecConnection);
         assertTrue(osIpSec != null);
     }
-    
+
     @Test
     public void testConvertVpc(){
-        
+
         Vpc vpc = new Vpc();
         vpc.setName("name/name");
         vpc.setUuid("uuid");
-        
+
         OsVpc osVpc =  MigrateModelUtil.convert(vpc);
         assertTrue(osVpc != null);
     }
-    
+
     @Test
     public void testConvertSubnet(){
-        
+
         Subnet subnet = new Subnet();
         subnet.setCidr("cidr");
-        
+
         OsSubnet osSubnet =  MigrateModelUtil.convert(subnet);
         assertTrue(osSubnet != null);
     }
-    
+
     @Test
     public void testConvertUnderlay(){
-        
+
         List<OverlayUnderlayMapping> list = new ArrayList<>();
         OverlayUnderlayMapping obj1 = new OverlayUnderlayMapping();
         OverlayUnderlayMapping obj2 = new OverlayUnderlayMapping();
@@ -115,14 +115,14 @@ public class MigrateModelUtilTest {
         list.add(obj2);
         list.add(obj3);
         list.add(obj4);
-        
+
         OsVpc.Underlays underlays =  MigrateModelUtil.convert(list);
         assertTrue(underlays != null);
     }
-    
+
     @Test
     public void testConvertUnderlay1(){
-        
+
         List<OverlayUnderlayMapping> list = new ArrayList<>();
         OverlayUnderlayMapping obj1 = new OverlayUnderlayMapping();
         OverlayUnderlayMapping obj2 = new OverlayUnderlayMapping();
@@ -144,15 +144,15 @@ public class MigrateModelUtilTest {
         list.add(obj3);
         list.add(obj4);
         list.add(obj5);
-        
+
         OsSubnet.Underlays underlays =  MigrateModelUtil.convert1(list);
         assertTrue(underlays != null);
     }
-    
-    
+
+
     @Test
     public void testConvertIpSecUnderlays(){
-        
+
         List<OverlayUnderlayMapping> list = new ArrayList<>();
         OverlayUnderlayMapping obj1 = new OverlayUnderlayMapping();
         OverlayUnderlayMapping obj2 = new OverlayUnderlayMapping();
@@ -174,11 +174,11 @@ public class MigrateModelUtilTest {
         list.add(obj3);
         list.add(obj4);
         list.add(obj5);
-        
+
         OsIpSec.Underlays underlays =  MigrateModelUtil.convert2(list);
         assertTrue(underlays != null);
     }
-    
+
     @Test
     public void testConvertList() throws ServiceException{
         Map<String, String> resources = new HashMap();

@@ -125,7 +125,7 @@ public class DaoInMemory<T> implements IDao<T>, IControllerDao{
     public OpenStackCredentials getOpenStackCredentials(String ctrlUuid) throws ServiceException {
         return new OpenStackCredentials().setDomain(
                 config.getOSDomainName()).setIp(config.getOSIpAddress()).setPort(
-                		config.getOSPort()).setPassword(
+                        config.getOSPort()).setPassword(
                         config.getOSUserName()).setUsername(config.getOSPassword());
     }
 

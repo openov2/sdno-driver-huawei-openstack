@@ -495,12 +495,12 @@ public class VpcSbiServiceTest {
 
             @Mock
             public Network getNetwork(String name) {
-                
+
                  * Network network = new Network();
                  * network.setAdminStateUp(true); network.setId("id1234");
                  * network.setName("network123");
                  * network.setProjectId("test/osdriver");
-                 
+
                 return VpcSbiServiceTest.this.network;
             }
 

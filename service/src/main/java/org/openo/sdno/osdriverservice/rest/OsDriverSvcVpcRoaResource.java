@@ -60,7 +60,7 @@ public class OsDriverSvcVpcRoaResource {
 
     /**
      * Create Vpc.<br>
-     * 
+     *
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter
@@ -98,7 +98,7 @@ public class OsDriverSvcVpcRoaResource {
 
     /**
      * Delete VPC.<br>
-     * 
+     *
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter
@@ -129,7 +129,7 @@ public class OsDriverSvcVpcRoaResource {
 
     /**
      * Create Subnet.<br>
-     * 
+     *
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter
@@ -168,7 +168,7 @@ public class OsDriverSvcVpcRoaResource {
 
     /**
      * Delete subnet<br>
-     * 
+     *
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter

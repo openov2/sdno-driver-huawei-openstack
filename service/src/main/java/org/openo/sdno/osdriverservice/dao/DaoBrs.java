@@ -113,7 +113,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao{
             throws ServiceException {
         Map<String,Object> filter = new HashMap<String, Object>();
         filter.put("overlayId", Arrays.asList(overlayId));
-        
+
         return new InventoryDaoUtil<T>().getInventoryDao().batchQuery(
                 clazz,
                 JsonUtil.toJson(filter)).getData();

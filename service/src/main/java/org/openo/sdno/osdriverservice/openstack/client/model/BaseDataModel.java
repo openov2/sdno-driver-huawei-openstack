@@ -20,7 +20,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Base Data Model class.<br>
- * 
+ *
  * @author
  * @version SDNO 0.5 2016-08-22
  */

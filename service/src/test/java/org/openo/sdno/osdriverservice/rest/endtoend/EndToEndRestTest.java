@@ -79,7 +79,7 @@ public class EndToEndRestTest {
 
             String subnetJson = Utils.getSampleJson("sample_subnet.json");
             Subnet subnet = rsc.createSubnet(null, null, "TEST", JsonUtil.fromJson(subnetJson, Subnet.class));
-            
+
             String ipsecJson = Utils.getSampleJson("sample_ipsec.json");
             List <DcGwIpSecConnection> ipSecCons = new ArrayList<>();
             DcGwIpSecConnection ipSecCon = JsonUtil.fromJson(ipsecJson, DcGwIpSecConnection.class);

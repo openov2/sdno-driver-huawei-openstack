@@ -38,7 +38,7 @@ import org.slf4j.LoggerFactory;
  * <br>
  * <p>
  * </p>
- * 
+ *
  * @author
  * @version SDNO 0.5 Aug 5, 2016
  */
@@ -56,7 +56,7 @@ public class HttpGateKeeper {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @since SDNO 0.5
      */
     private HttpGateKeeper() {
@@ -65,7 +65,7 @@ public class HttpGateKeeper {
 
     /**
      * <br>
-     * 
+     *
      * @since SDNO 0.5
      */
     public static void clean() {
@@ -74,7 +74,7 @@ public class HttpGateKeeper {
 
     /**
      * <br>
-     * 
+     *
      * @param request
      * @param response
      * @since SDNO 0.5
@@ -87,7 +87,7 @@ public class HttpGateKeeper {
 
     /**
      * <br>
-     * 
+     *
      * @param baseDir
      * @since SDNO 0.5
      */
@@ -142,7 +142,7 @@ public class HttpGateKeeper {
 
     /**
      * <br>
-     * 
+     *
      * @since SDNO 0.5
      */
     public static void cleanupMockFiles() {
@@ -157,7 +157,7 @@ public class HttpGateKeeper {
 
     /**
      * <br>
-     * 
+     *
      * @param replaceMap
      * @since SDNO 0.5
      */
@@ -213,7 +213,7 @@ public class HttpGateKeeper {
 
     /**
      * <br>
-     * 
+     *
      * @param args
      * @since SDNO 0.5
      */

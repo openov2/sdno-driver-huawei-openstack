@@ -43,7 +43,7 @@ public class IpSecServiceTest {
 
     @Test
     public void testCreateIpSec() throws ServiceException, OpenStackException {
-        
+
         new MockUp<EntityUtils>() {
 
             @Mock

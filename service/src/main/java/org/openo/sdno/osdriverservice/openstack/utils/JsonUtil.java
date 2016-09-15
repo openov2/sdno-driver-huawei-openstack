@@ -41,7 +41,7 @@ public final class JsonUtil {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @since SDNO 0.5
      */
     private JsonUtil() {
@@ -50,7 +50,7 @@ public final class JsonUtil {
 
     /**
      * <br>
-     * 
+     *
      * @param obj Object to be JSON stringified.
      * @return
      * @since SDNO 0.5
@@ -61,7 +61,7 @@ public final class JsonUtil {
 
     /**
      * <br>
-     * 
+     *
      * @param obj Object to be JSON stringified.
      * @param considerRootName true if the rot value is to be considered.
      * @return

@@ -40,7 +40,7 @@ import net.sf.json.JSONObject;
 
 /**
  * Test Both VPC and IpSec end to end.
- * @author 
+ * @author
  *
  */
 public class EndToEndSbiTest {
@@ -58,7 +58,7 @@ public class EndToEndSbiTest {
     public static final String REGION = "RegionOne";
 
     public boolean validateBranch = false;
-    
+
     public EndToEndSbiTest() throws OpenStackException {
     }
 
@@ -88,9 +88,9 @@ public class EndToEndSbiTest {
             vpcSrv.createVpc(vpc);
             vpcSrv.createSubnet(subnet);
         }
-        
+
         this.checkIpSec(
-                vpc.getAttributes().getRouterId(), 
+                vpc.getAttributes().getRouterId(),
                 vpc.getAttributes().getProjectId(),
                 subnet.getAttributes().getVpcSubnetId());
         vpcSrv.deleteSubnet(subnet.getAttributes());

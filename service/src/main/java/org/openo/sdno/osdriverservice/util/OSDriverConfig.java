@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * OsDriver Configuration Operation Class.<br/>
- * 
+ *
  * @author
  * @version SDNO 0.5 Aug 9, 2016
  */
@@ -43,7 +43,7 @@ public class OSDriverConfig {
 
     /**
      * Get OSDriver Password.<br/>
-     * 
+     *
      * @return OSDriver Password
      * @since SDNO 0.5
      */
@@ -53,7 +53,7 @@ public class OSDriverConfig {
 
     /**
      * Get OSDriver UserName.<br/>
-     * 
+     *
      * @return OS UserName
      * @since SDNO 0.5
      */
@@ -63,7 +63,7 @@ public class OSDriverConfig {
 
     /**
      * Get OSDriver Port.<br/>
-     * 
+     *
      * @return OSDriver Port
      * @since SDNO 0.5
      */
@@ -73,7 +73,7 @@ public class OSDriverConfig {
 
     /**
      * Get OSDriver IpAddress.<br/>
-     * 
+     *
      * @return OSDriver IpAddress
      * @since SDNO 0.5
      */
@@ -83,7 +83,7 @@ public class OSDriverConfig {
 
     /**
      * Get OSDriver Domain name.<br/>
-     * 
+     *
      * @return OSDriver Domain name
      * @since SDNO 0.5
      */
@@ -93,14 +93,14 @@ public class OSDriverConfig {
 
     /**
      * Get OSDriver Region name.<br/>
-     * 
+     *
      * @return OSDriver Region name
      * @since SDNO 0.5
      */
     public String getOSRegionName() {
         return properties.getProperty("os_regionname");
     }
-    
+
     private void loadProperties() {
         try {
             FileInputStream fin = new FileInputStream(OS_DRIVER_CONFIG);

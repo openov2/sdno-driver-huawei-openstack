@@ -41,7 +41,7 @@ public interface IControllerDao {
      * @since SDNO 0.5
      */
     OpenStackCredentials getOpenStackCredentials(String ctrlUuid) throws ServiceException;
-    
+
 
     /**
      * Get OpenStack region

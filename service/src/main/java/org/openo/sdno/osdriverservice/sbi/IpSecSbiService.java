@@ -108,14 +108,14 @@ public class IpSecSbiService {
             //TODO(mrkanag) IpSec connection takes time to delete completely, so track it
             this.client.deleteVpnIpSecSiteConnection(underlays.getVpnIpSecSiteConnectionId());
             underlays.setVpnIpSecSiteConnectionId(underlays.getVpnIpSecSiteConnectionId(), "d");
-            
+
             //TODO(mrkanag) VpnService takes time to delete completely, so track it
             this.client.deleteVpnService(underlays.getVpnServiceId());
             underlays.setVpnServiceId(underlays.getVpnServiceId(), "d");
-            
+
             this.client.deleteVpnIkePolicy(underlays.getVpnIkePolicyId());
             underlays.setVpnIkePolicyId(underlays.getVpnIkePolicyId(), "d");
-            
+
             this.client.deleteVpnIpSecPolicy(underlays.getVpnIpSecPolicyId());
             underlays.setVpnIpSecPolicyId(underlays.getVpnIpSecPolicyId(), "d");
         } catch(OpenStackException e) {

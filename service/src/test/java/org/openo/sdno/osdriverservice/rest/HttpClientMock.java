@@ -47,7 +47,7 @@ public class HttpClientMock extends CloseableHttpClient{
     @Override
     public void close() throws IOException {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -57,7 +57,7 @@ public class HttpClientMock extends CloseableHttpClient{
         return null;
     }
 
-    
+
 
 
 }

@@ -33,7 +33,7 @@ public class AlreadyExistException extends OpenStackException {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @param message Exception message.
      * @since SDNO 0.5
      */

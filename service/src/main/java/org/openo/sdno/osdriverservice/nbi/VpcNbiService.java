@@ -43,7 +43,7 @@ public class VpcNbiService {
 
     /**
      * Constructor<br>
-     * 
+     *
      * @since SDNO 0.5
      */
     public VpcNbiService() {
@@ -53,7 +53,7 @@ public class VpcNbiService {
     /**
      * To create VPC service.
      * <br>
-     * 
+     *
      * @param ctrlUuid
      * @param vpc
      * @return
@@ -89,7 +89,7 @@ public class VpcNbiService {
     /**
      * To delete VPC service.
      * <br>
-     * 
+     *
      * @param ctrlUuid
      * @param vpcId
      * @throws ServiceException
@@ -120,7 +120,7 @@ public class VpcNbiService {
     /**
      * To create Subnet.
      * <br>
-     * 
+     *
      * @param ctrlUuid
      * @param vpcId
      * @param subnet
@@ -163,7 +163,7 @@ public class VpcNbiService {
     /**
      * To delete subnet.
      * <br>
-     * 
+     *
      * @param ctrlUuid
      * @param subnetId
      * @throws ServiceException

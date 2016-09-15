@@ -37,7 +37,7 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public StatusLine getStatusLine() {
         // TODO Auto-generated method stub
-        
+
         return statusline;
     }
 
@@ -50,13 +50,13 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public void setStatusLine(ProtocolVersion ver, int code) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setStatusLine(ProtocolVersion ver, int code, String reason) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -64,75 +64,75 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
         // TODO Auto-generated method stub
         this.statusCode = code;
     }
-    
+
     public int getStatusCode() throws IllegalStateException {
         return statusCode;
-        
+
     }
 
     @Override
     public void setReasonPhrase(String reason) throws IllegalStateException {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public HttpEntity getEntity() {
         // TODO Auto-generated method stub
         return new HttpEntity() {
-            
+
             @Override
             public void writeTo(OutputStream outstream) throws IOException {
                 // TODO Auto-generated method stub
-                
+
             }
-            
+
             @Override
             public boolean isStreaming() {
                 // TODO Auto-generated method stub
                 return false;
             }
-            
+
             @Override
             public boolean isRepeatable() {
                 // TODO Auto-generated method stub
                 return false;
             }
-            
+
             @Override
             public boolean isChunked() {
                 // TODO Auto-generated method stub
                 return false;
             }
-            
+
             @Override
             public Header getContentType() {
                 // TODO Auto-generated method stub
                 return null;
             }
-            
+
             @Override
             public long getContentLength() {
                 // TODO Auto-generated method stub
                 return 0;
             }
-            
+
             @Override
             public Header getContentEncoding() {
                 // TODO Auto-generated method stub
                 return null;
             }
-            
+
             @Override
             public InputStream getContent() throws IOException, IllegalStateException {
                 // TODO Auto-generated method stub
                 return null;
             }
-            
+
             @Override
             public void consumeContent() throws IOException {
                 // TODO Auto-generated method stub
-                
+
             }
         };
     }
@@ -140,7 +140,7 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public void setEntity(HttpEntity entity) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -152,7 +152,7 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public void setLocale(Locale loc) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -170,8 +170,8 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public Header[] getHeaders(String name) {
         // TODO Auto-generated method stub
-        
-        
+
+
         return null;
     }
 
@@ -204,43 +204,43 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public void addHeader(Header header) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void addHeader(String name, String value) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setHeader(Header header) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setHeader(String name, String value) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setHeaders(Header[] headers) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void removeHeader(Header header) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void removeHeaders(String name) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -264,13 +264,13 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public void setParams(HttpParams params) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void close() throws IOException {
         // TODO Auto-generated method stub
-        
+
     }
 
 }

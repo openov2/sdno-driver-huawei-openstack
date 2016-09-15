@@ -27,7 +27,7 @@ public class Utils {
         String json = IOUtils.toString(clz.getResourceAsStream(fileName));
         return json;
     }
-    
+
     public static String getSampleJson(String fileName) throws IOException {
         String json = IOUtils.toString(new FileInputStream("src/test/resources/" + fileName));
         return json;

@@ -24,8 +24,8 @@ public class OSDriverConfigTest {
 
     @Test
     public void test() {
-    	OSDriverConfig config = new OSDriverConfig();
-    	assertNotNull(config.getOSIpAddress());
-    	assertNotNull(config.getOSDomainName());    	
+        OSDriverConfig config = new OSDriverConfig();
+        assertNotNull(config.getOSIpAddress());
+        assertNotNull(config.getOSDomainName());
     }
 }

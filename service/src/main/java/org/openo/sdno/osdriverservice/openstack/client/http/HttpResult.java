@@ -61,7 +61,7 @@ public class HttpResult {
 
     /**
      * <br>
-     * 
+     *
      * @return
      * @since SDNO 0.5
      */

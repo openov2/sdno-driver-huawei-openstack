@@ -38,7 +38,7 @@ public class OpenStackException extends Exception {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @param message exception message.
      * @since SDNO 0.5
      */
@@ -50,7 +50,7 @@ public class OpenStackException extends Exception {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @param cause Cause of exception.
      * @since SDNO 0.5
      */
@@ -62,7 +62,7 @@ public class OpenStackException extends Exception {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @param httpCode the status code of HTTP.
      * @param message Response message.
      * @since SDNO 0.5
@@ -76,7 +76,7 @@ public class OpenStackException extends Exception {
      * Constructor<br>
      * <p>
      * </p>
-     * 
+     *
      * @param httpCode the status code of HTTP.
      * @param errorCode The error code for the operation.
      * @param message The message for the Exception.
@@ -90,7 +90,7 @@ public class OpenStackException extends Exception {
 
     /**
      * <br>
-     * 
+     *
      * @return
      * @since SDNO 0.5
      */
@@ -100,7 +100,7 @@ public class OpenStackException extends Exception {
 
     /**
      * <br>
-     * 
+     *
      * @param errorCode The error code for the operation.
      * @since SDNO 0.5
      */
@@ -110,7 +110,7 @@ public class OpenStackException extends Exception {
 
     /**
      * <br>
-     * 
+     *
      * @return
      * @since SDNO 0.5
      */
@@ -120,7 +120,7 @@ public class OpenStackException extends Exception {
 
     /**
      * <br>
-     * 
+     *
      * @param httpCode the status code of HTTP.
      * @since SDNO 0.5
      */
@@ -134,7 +134,7 @@ public class OpenStackException extends Exception {
 
     /**
      * <br>
-     * 
+     *
      * @return
      * @since SDNO 0.5
      */
@@ -149,7 +149,7 @@ public class OpenStackException extends Exception {
 
     /**
      * <br>
-     * 
+     *
      * @param obj
      * @return
      * @since SDNO 0.5

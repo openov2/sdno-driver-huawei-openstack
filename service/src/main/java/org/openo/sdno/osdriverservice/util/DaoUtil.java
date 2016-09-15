@@ -35,7 +35,7 @@ import org.openo.sdno.osdriverservice.dao.inf.IDao;
 public class DaoUtil<T> {
 
     private static IDao dao = new DaoInMemory();
-    
+
     public static IDao getDao() {
         return dao;
     }

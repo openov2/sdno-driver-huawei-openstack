@@ -41,7 +41,7 @@ public class ControllerUtilTest {
                 ControllerMO mo = new ControllerMO();
                 mo.setHostName("abc.xyz");
                 mo.setDescription("test123");
-                
+
                 return mo;
             }
         };
