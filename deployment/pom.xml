@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.openo.sdno.driver-huawei-openstack</groupId>
         <artifactId>osdriverservice-root</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>osdriverservice-deployment</artifactId>
@@ -54,16 +54,16 @@
                                 ant.delete(dir: "${deployUnzip}")
                                 ant.mkdir(dir: "${deployUnzip}")
 
-                                ant.mkdir(dir: "${deployUnzip}/webapps/org.openo.sdno.osdriverservice-0.0.1-SNAPSHOT")
+                                ant.mkdir(dir: "${deployUnzip}/webapps/org.openo.sdno.osdriverservice-1.0.0-SNAPSHOT")
 
                                 ant.copy(todir: "${deployUnzip}") {
                                 fileset(dir: "${basedir}/src/main/release"){
                                 exclude(name: "**/.gitignore")
                                 }
                                 }
-                                ant.copy(todir: "${deployUnzip}/webapps/org.openo.sdno.osdriverservice-0.0.1-SNAPSHOT") {
+                                ant.copy(todir: "${deployUnzip}/webapps/org.openo.sdno.osdriverservice-1.0.0-SNAPSHOT") {
                                 fileset(dir:
-                                "${project.build.directory}/../../service/target/org.openo.sdno.osdriverservice-0.0.1-SNAPSHOT")
+                                "${project.build.directory}/../../service/target/org.openo.sdno.osdriverservice-1.0.0-SNAPSHOT")
                                 }
 
                                 ant.zip(destfile:
