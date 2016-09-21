@@ -23,6 +23,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpServletRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
@@ -164,8 +166,8 @@ public class OsDriverSvcIpSecResourceTest {
             }
         };
 
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         DcGwIpSecConnection dcGwIpSecConnection = new DcGwIpSecConnection();
         dcGwIpSecConnection.setUuid("uuid!23");
         IkePolicy ikePolicy = new IkePolicy();
@@ -308,8 +310,8 @@ public class OsDriverSvcIpSecResourceTest {
             }
         };
 
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         DcGwIpSecConnection dcGwIpSecConnection = new DcGwIpSecConnection();
         dcGwIpSecConnection.setUuid("uuid!23");
         IkePolicy ikePolicy = new IkePolicy();
@@ -417,8 +419,9 @@ public class OsDriverSvcIpSecResourceTest {
                 return info;
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         DcGwIpSecConnection dcGwIpSecConnection = new DcGwIpSecConnection();
         dcGwIpSecConnection.setUuid("uuid!23");
         IkePolicy ikePolicy = new IkePolicy();
@@ -553,8 +556,9 @@ public class OsDriverSvcIpSecResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+        
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
     }
 
@@ -655,9 +659,10 @@ public class OsDriverSvcIpSecResourceTest {
             @Mock
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
-        };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+        };       
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
     }
 

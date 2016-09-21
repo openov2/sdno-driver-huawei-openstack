@@ -27,6 +27,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpServletRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
@@ -166,8 +168,8 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return null;
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         Vpc vpc = new Vpc();
         vpc.setName("name/name");
         vpc.setUuid("uuid");
@@ -276,8 +278,8 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return null;
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         Vpc vpc = new Vpc();
         vpc.setName("name/name");
         vpc.setUuid("uuid");
@@ -379,8 +381,9 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return null;
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         Vpc vpc = new Vpc();
         vpc.setName("name/name");
         vpc.setUuid("uuid");
@@ -509,8 +512,9 @@ public class OsDriverSvcVpcRoaResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         roaVPC.deleteVpc(request, response, "name=id", "vpcID");
         assertTrue(true);
     }
@@ -636,7 +640,8 @@ public class OsDriverSvcVpcRoaResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
+
+        HttpServletRequest request = new MockHttpServletRequest();
         roaVPC.deleteVpc(request, null, "name=id", "vpcID");
         assertTrue(true);
     }
@@ -724,8 +729,9 @@ public class OsDriverSvcVpcRoaResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         roaVPC.deleteVpc(request, null, "name=id", "vpcID");
         assertTrue(true);
     }
@@ -843,8 +849,9 @@ public class OsDriverSvcVpcRoaResourceTest {
         };
         Subnet subnet = new Subnet();
         subnet.setCidr("cidr");
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         Subnet subnetReturn = roaVPC.createSubnet(request, response, "ctrlUUID", subnet);
         assertTrue(subnetReturn != null);
     }
@@ -962,7 +969,8 @@ public class OsDriverSvcVpcRoaResourceTest {
         };
         Subnet subnet = new Subnet();
         subnet.setCidr("cidr");
-        HttpServletRequest request = new HttpRequest();
+
+        HttpServletRequest request = new MockHttpServletRequest();
         Subnet subnetReturn = roaVPC.createSubnet(request, null, "ctrlUUID", subnet);
         assertTrue(subnetReturn != null);
     }
@@ -1092,8 +1100,9 @@ public class OsDriverSvcVpcRoaResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         roaVPC.deleteSubnet(request, response, "ctrlUUID", "12345");
         assertTrue(true);
     }
@@ -1223,8 +1232,9 @@ public class OsDriverSvcVpcRoaResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
-        HttpServletResponse response = new HttpResponse();
+
+        HttpServletRequest request = new MockHttpServletRequest();
+        HttpServletResponse response = new MockHttpServletResponse();
         roaVPC.deleteSubnet(request, null, "ctrlUUID", "12345");
         assertTrue(true);
     }
@@ -1332,7 +1342,8 @@ public class OsDriverSvcVpcRoaResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        HttpServletRequest request = new HttpRequest();
+
+        HttpServletRequest request = new MockHttpServletRequest();
         roaVPC.deleteSubnet(request, null, "ctrlUUID", "12345");
     }
 }
