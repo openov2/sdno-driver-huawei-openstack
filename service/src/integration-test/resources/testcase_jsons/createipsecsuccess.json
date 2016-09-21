@@ -1,10 +1,10 @@
 {
     "request": {
-        "uri": "/openoapi/sbi-ipsec/v1/dc-gateway/batch-create-ipsecs",
+        "uri": "/org.openo.sdno.osdriverservice/openoapi/sbi-ipsec/v1/dc-gateway/batch-create-ipsecs",
         "method": "post",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",
-            "X-Driver-Parameter": "extSysID=ctrlid1024"
+            "X-Driver-Parameter": "extSysID=TEST"
         },
         "json": [
             {

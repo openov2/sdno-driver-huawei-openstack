@@ -20,9 +20,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-
-import org.openo.sdno.osdriver.mockserver.OpenStackSuccessMockServer;
-
+import org.openo.sdno.osdriver.mockserver.GenericMockServer;
 import org.openo.sdno.testframework.checker.IChecker;
 import org.openo.sdno.testframework.http.model.HttpModelUtils;
 import org.openo.sdno.testframework.http.model.HttpRequest;
@@ -50,16 +48,49 @@ public class ITSuccessTest extends TestManager {
     private static final String DELETE_IPSEC_SUCCESS_TESTCASE =
             "src/integration-test/resources/testcase_jsons/deleteipsecsuccess.json";
 
-    private static OpenStackSuccessMockServer sbiAdapterServer = new OpenStackSuccessMockServer();
+    private static String[] mockJsonsOpenStack =
+            new String[] {"src/integration-test/resources/openstack_mock_jsons/auth_token.json",
+                    "src/integration-test/resources/openstack_mock_jsons/project_create.json",
+                    "src/integration-test/resources/openstack_mock_jsons/project_list.json",
+                    "src/integration-test/resources/openstack_mock_jsons/project_delete.json",
+                    "src/integration-test/resources/openstack_mock_jsons/project_create.json",
+                    "src/integration-test/resources/openstack_mock_jsons/network_list.json",
+                    "src/integration-test/resources/openstack_mock_jsons/network_delete.json",
+                    "src/integration-test/resources/openstack_mock_jsons/network_create.json",
+                    "src/integration-test/resources/openstack_mock_jsons/router_list.json",
+                    "src/integration-test/resources/openstack_mock_jsons/router_delete.json",
+                    "src/integration-test/resources/openstack_mock_jsons/router_create.json",
+                    "src/integration-test/resources/openstack_mock_jsons/subnet_list.json",
+                    "src/integration-test/resources/openstack_mock_jsons/subnet_delete.json",
+                    "src/integration-test/resources/openstack_mock_jsons/subnet_create.json",
+                    "src/integration-test/resources/openstack_mock_jsons/subnet_attach.json",
+                    "src/integration-test/resources/openstack_mock_jsons/subnet_detach.json",
+                    "src/integration-test/resources/openstack_mock_jsons/createikepolicy.json",
+                    "src/integration-test/resources/openstack_mock_jsons/createipsecpolicy.json",
+                    "src/integration-test/resources/openstack_mock_jsons/createvpnservice.json",
+                    "src/integration-test/resources/openstack_mock_jsons/createipsecconn.json",
+                    "src/integration-test/resources/openstack_mock_jsons/createikepolicy.json",
+                    "src/integration-test/resources/openstack_mock_jsons/deleteipsecpolicy.json",
+                    "src/integration-test/resources/openstack_mock_jsons/deleteikepolicy.json",
+                    "src/integration-test/resources/openstack_mock_jsons/deletevpnservice.json",
+                    "src/integration-test/resources/openstack_mock_jsons/deleteipsecconn.json"};
+
+    private static String[] mockJsonsEsrs =
+            new String[] {"src/integration-test/resources/esr_mock_jsons/esr_controller.json"};
+
+
+    private static GenericMockServer mocoServer = new GenericMockServer();
 
     @BeforeClass
     public static void setup() throws ServiceException {
-        sbiAdapterServer.start();
+        mocoServer.addMockJsons(mockJsonsOpenStack);
+        mocoServer.addMockJsons(mockJsonsEsrs);
+        mocoServer.start();
     }
 
     @AfterClass
     public static void tearDown() throws ServiceException {
-        sbiAdapterServer.stop();
+        mocoServer.stop();
     }
 
     private void checkVpcCreate() throws ServiceException {
@@ -114,7 +145,7 @@ public class ITSuccessTest extends TestManager {
             this.checkSubnetDelete();
             this.checkVpcDelete();
         } finally {
-
+        //NOSONAR
         }
     }
 

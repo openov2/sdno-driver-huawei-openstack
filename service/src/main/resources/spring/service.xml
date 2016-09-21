@@ -19,9 +19,9 @@
     xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:context="http://www.springframework.org/schema/context"
     xmlns:jaxrs="http://cxf.apache.org/jaxrs"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-	 http://www.springframework.org/schema/beans/spring-beans.xsd
-	 http://www.springframework.org/schema/context 
-	 http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context.xsd
      http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
     <!-- these are included in the dependency jar -->
@@ -52,7 +52,7 @@
         destroy-method="stop">
     </bean>
     <bean id="daoBrs" class="org.openo.sdno.osdriverservice.dao.DaoBrs"></bean>
-    
+
     <bean id="daoUtil" class="org.openo.sdno.osdriverservice.util.DaoUtil">
         <property name="dao" ref="daoBrs" />
     </bean>

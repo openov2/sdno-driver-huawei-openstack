@@ -1,0 +1,17 @@
+{
+    "request": {
+        "uri": "/openoapi/extsys/v1/vims/sdno-driver-ipsec-V100R002",
+        "method": "delete",
+        "headers": {
+        },
+        "json": {
+
+        }
+    },
+    "response": {
+        "status": 200,
+        "json": {
+
+        }
+    }
+}

@@ -107,8 +107,7 @@ public class VpcNbiService {
             LOGGER.error("Exception in deleteVpc", e);
             throw new ServiceException(e);
         } finally {
-            for(OverlayUnderlayMapping mapping : MigrateModelUtil.convert(underlays.getResourceIds(),
-                    underlays.getResourceActions(), underlays.getProjectId(), "VPC", ctrlUuid, vpcId)) {
+            for(OverlayUnderlayMapping mapping : mappings) {
                 String action = underlays.getResourceActions().get(mapping.getUnderlayId());
                 if("d".equals(action)) {
                     DaoUtil.delete(OverlayUnderlayMapping.class, mapping.getUuid());
@@ -181,8 +180,7 @@ public class VpcNbiService {
             LOGGER.error("Exception in deleteSubnet", e);
             throw new ServiceException(e);
         } finally {
-            for(OverlayUnderlayMapping mapping : MigrateModelUtil.convert(underlays.getResourceIds(),
-                    underlays.getResourceActions(), underlays.getProjectId(), "SUBNET", ctrlUuid, subnetId)) {
+            for(OverlayUnderlayMapping mapping : mappings) {
                 String action = underlays.getResourceActions().get(mapping.getUnderlayId());
                 if("d".equals(action)) {
                     DaoUtil.delete(OverlayUnderlayMapping.class, mapping.getUuid());

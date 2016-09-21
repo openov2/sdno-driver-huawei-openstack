@@ -16,6 +16,7 @@
 
 package org.openo.sdno.osdriverservice.dao;
 
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -32,18 +33,24 @@ import org.openo.sdno.overlayvpn.brs.model.AuthInfo;
 import org.openo.sdno.overlayvpn.brs.model.CommParamMO;
 import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.inventory.sdk.util.InventoryDaoUtil;
+import org.openo.sdno.osdriverservice.util.ESRutil;
+import org.openo.sdno.osdriverservice.util.OSDriverConfig;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- *
  * BRS DAO class<br>
  * <p>
  * </p>
  *
  * @param <T>
  * @author
- * @version     SDNO 0.5  Aug 6, 2016
+ * @version SDNO 0.5 Aug 6, 2016
  */
-public class DaoBrs<T> implements IDao<T>, IControllerDao{
+public class DaoBrs<T> implements IDao<T>, IControllerDao {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(DaoBrs.class);
 
     /**
      * Constructor<br>
@@ -57,70 +64,75 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao{
     }
 
     /**
-     * Adds OverlayUnderlayMapping
-     * <br>
+     * Adds OverlayUnderlayMapping <br>
      *
      * @param entity
      * @return
      * @throws ServiceException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
-    public T  insert(T entity) throws ServiceException {
+    public T insert(T entity) throws ServiceException {
         return new InventoryDaoUtil<T>().getInventoryDao().insert(entity).getData();
     }
 
     /**
-     * Delete OverlayUnderlayMapping
-     * <br>
+     * Delete OverlayUnderlayMapping <br>
      *
      * @param clazz
      * @param uuid
      * @throws ServiceException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public void delete(Class<T> clazz, String uuid) throws ServiceException {
         new InventoryDaoUtil<T>().getInventoryDao().delete(clazz, uuid);
     }
 
     /**
-     * Get OverlayUnderlayMapping
-     * <br>
+     * Get OverlayUnderlayMapping <br>
      *
      * @param clazz
      * @param uuid
      * @return
      * @throws ServiceException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public T get(Class<T> clazz, String uuid) throws ServiceException {
-        return new InventoryDaoUtil<T>().getInventoryDao().query(
-                clazz,
-                uuid,
-                null).getData();
+        return new InventoryDaoUtil<T>().getInventoryDao().query(clazz, uuid, null).getData();
     }
 
     /**
-     * Find children of given OverlayUnderlayMapping's overlay id
-     * <br>
+     * Find children of given OverlayUnderlayMapping's overlay id <br>
      *
      * @param clazz
      * @param overlayId
      * @return
      * @throws ServiceException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
-    public List<T> getChildren(Class<T> clazz, String overlayId)
-            throws ServiceException {
-        Map<String,Object> filter = new HashMap<String, Object>();
+    public List<T> getChildren(Class<T> clazz, String overlayId) throws ServiceException {
+        Map<String, Object> filter = new HashMap<String, Object>();
         filter.put("overlayId", Arrays.asList(overlayId));
 
-        return new InventoryDaoUtil<T>().getInventoryDao().batchQuery(
-                clazz,
-                JsonUtil.toJson(filter)).getData();
+        return new InventoryDaoUtil<T>().getInventoryDao().batchQuery(clazz, JsonUtil.toJson(filter)).getData();
     }
 
     @Override
     public OpenStackCredentials getOpenStackCredentials(String ctrlUuid) throws ServiceException {
+
+        OSDriverConfig config = new OSDriverConfig();
+        if(config.isEsrEnabled()) {
+            Map<String, Object> controllerMap = ESRutil.getControllerDetails(ctrlUuid);
+            try {
+                URL url = new URL((String)controllerMap.get("url"));
+                return new OpenStackCredentials().setIp(url.getHost()).setPort(Integer.toString(url.getPort()))
+                        .setUsername((String)controllerMap.get("userName"))
+                        .setPassword((String)controllerMap.get("password"))
+                        .setDomain((String)controllerMap.get("domain"));
+            } catch(Exception ex) {
+                LOGGER.error("Error in getting controller", ex);
+                throw new ServiceException("Error in getting controller", ex);
+            }
+        }
         ControllerMO controller = (new ControllerDao()).getController(ctrlUuid);
 
         List<CommParamMO> commPrarmList = (new CommParamDao()).getCommParam(controller.getObjectId());
@@ -133,6 +145,12 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao{
 
     @Override
     public String getOpenStackRegion(String ctrlUuid) throws ServiceException {
+        OSDriverConfig config = new OSDriverConfig();
+        if(config.isEsrEnabled()) {
+            Map<String, Object> controllerMap = ESRutil.getControllerDetails(ctrlUuid);
+        //TODO(mrkanag) Remove the hard-coding if region, once ESR allows to have region as configurable
+            return controllerMap.get("region") == null ? "RegionOne" : (String)controllerMap.get("region");
+        }
         ControllerMO controller = (new ControllerDao()).getController(ctrlUuid);
 
         List<CommParamMO> commPrarmList = (new CommParamDao()).getCommParam(controller.getObjectId());
