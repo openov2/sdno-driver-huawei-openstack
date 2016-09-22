@@ -10,6 +10,10 @@
     <artifactId>org.openo.sdno.osdriverservice</artifactId>
     <packaging>war</packaging>
 
+    <build>
+        <finalName>${package.name}</finalName>
+    </build>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

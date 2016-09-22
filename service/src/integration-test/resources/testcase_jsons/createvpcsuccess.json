@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/org.openo.sdno.osdriverservice/openoapi/sbi-vpc/v1/vpcs",
+        "uri": "/openstackdriverservice/openoapi/sbi-vpc/v1/vpcs",
         "method": "post",
         "headers": {
             "Content-Type": "application/json",

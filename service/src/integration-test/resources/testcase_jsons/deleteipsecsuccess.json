@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/org.openo.sdno.osdriverservice/openoapi/sbi-ipsec/v1/dc-gateway/ipsecs/7b347d20-6fa3-4e22-b744-c49ee235a123",
+        "uri": "/openstackdriverservice/openoapi/sbi-ipsec/v1/dc-gateway/ipsecs/7b347d20-6fa3-4e22-b744-c49ee235a123",
         "method": "delete",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",
