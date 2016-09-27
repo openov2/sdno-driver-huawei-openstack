@@ -52,7 +52,7 @@
                                 deployUnzip =
                                 "${project.build.directory}/deployunzip"
                                 outfileName =
-                "${package.name}.${project.version}.zip"
+                                "${package.name}.${project.version}.zip"
                                 ant.delete(dir: "${deployFolder}")
                                 ant.mkdir(dir:
                                 "${deployFolder}")
@@ -82,6 +82,27 @@
                                 }
                                 System.out.println("******** completed. ************")
                             </source>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/deployoutput/${package.name}.${project.version}.zip</file>
+                                    <type>zip</type>
+                                </artifact>
+                            </artifacts>
                         </configuration>
                     </execution>
                 </executions>
