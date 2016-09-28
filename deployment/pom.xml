@@ -52,7 +52,7 @@
                                 deployUnzip =
                                 "${project.build.directory}/deployunzip"
                                 outfileName =
-                                "${package.name}.${project.version}.zip"
+                                "${package.name}-${project.version}.zip"
                                 ant.delete(dir: "${deployFolder}")
                                 ant.mkdir(dir:
                                 "${deployFolder}")
@@ -99,7 +99,7 @@
                         <configuration>
                             <artifacts>
                                 <artifact>
-                                    <file>${project.build.directory}/deployoutput/${package.name}.${project.version}.zip</file>
+                                    <file>${project.build.directory}/deployoutput/${package.name}-${project.version}.zip</file>
                                     <type>zip</type>
                                 </artifact>
                             </artifacts>
