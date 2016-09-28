@@ -108,10 +108,7 @@ public class VpcNbiService {
             throw new ServiceException(e);
         } finally {
             for(OverlayUnderlayMapping mapping : mappings) {
-                String action = underlays.getResourceActions().get(mapping.getUnderlayId());
-                if("d".equals(action)) {
-                    DaoUtil.delete(OverlayUnderlayMapping.class, mapping.getUuid());
-                }
+                DaoUtil.delete(OverlayUnderlayMapping.class, mapping.getUuid());
             }
         }
     }
@@ -181,10 +178,7 @@ public class VpcNbiService {
             throw new ServiceException(e);
         } finally {
             for(OverlayUnderlayMapping mapping : mappings) {
-                String action = underlays.getResourceActions().get(mapping.getUnderlayId());
-                if("d".equals(action)) {
-                    DaoUtil.delete(OverlayUnderlayMapping.class, mapping.getUuid());
-                }
+                DaoUtil.delete(OverlayUnderlayMapping.class, mapping.getUuid());
             }
         }
     }
