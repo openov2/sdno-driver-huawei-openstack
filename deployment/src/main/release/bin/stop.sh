@@ -13,7 +13,29 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
 #!/bin/bash
 cd ..
 export CATALINA_BASE=$(cd `dirname $0`; pwd)
-$CATALINA_HOME/bin/catalina.sh stop
+
+if [ -z "$JAVA_HOME" ]
+then
+    echo "There is no JAVA_HOME"
+    exit 1
+fi
+
+if [ -z "$CATALINA_HOME" ]
+then
+    echo "There is no CATALINA_HOME"
+    exit 1
+fi
+
+export CATALINA_PID="$CATALINA_BASE/bin/catalina.pid"
+
+if [ -z "$CATALINA_BASE" ]
+then
+    echo "There is no CATALINA_BASE"
+    exit 1
+fi
+
+$CATALINA_HOME/bin/catalina.sh stop -force
