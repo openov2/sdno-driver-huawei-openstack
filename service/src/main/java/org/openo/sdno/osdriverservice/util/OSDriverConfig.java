@@ -122,6 +122,30 @@ public class OSDriverConfig {
         return properties.getProperty("driver.http.port");
     }
 
+    /**
+     * Get OSDriver endpoint IP address
+     * @return
+     */
+    public String getDriverIp(){
+        return properties.getProperty("driver.http.ip");
+    }
+
+    /**
+     * Get OSDriver registration initial delay
+     * @return
+     */
+    public int getDriverRegistrationInitialDelay(){
+        return Integer.parseInt(properties.getProperty("driver.registration.delay"));
+    }
+
+    /**
+     * Get OSDriver registration initial delay
+     * @return
+     */
+    public int getDriverRegistrationReattemptInterval(){
+        return Integer.parseInt(properties.getProperty("driver.registration.reattempt_interval"));
+    }
+
      /**
      * Get OSDriver http protocol.<br/>
      *

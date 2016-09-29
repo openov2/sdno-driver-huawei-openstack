@@ -17,7 +17,7 @@
 package org.openo.sdno.osdriverservice.rest.endtoend;
 
 import org.openo.baseservice.remoteservice.exception.ServiceException;
-import org.openo.sdno.osdriverservice.dm.DriverRegistrarListener;
+import org.openo.sdno.osdriverservice.dm.DriverRegistration;
 import org.openo.sdno.osdriverservice.openstack.mock.GenericMockServer;
 
 /**
@@ -50,12 +50,12 @@ public class DriverRegistrationTest {
     }
 
     private void verifyRegistration() throws ServiceException{
-        DriverRegistrarListener listener = new DriverRegistrarListener();
+        DriverRegistration listener = new DriverRegistration();
         listener.contextInitialized(null);
     }
 
     private void verifyDeRegistration() throws ServiceException{
-        DriverRegistrarListener listener = new DriverRegistrarListener();
+        DriverRegistration listener = new DriverRegistration();
         listener.contextDestroyed(null);;
     }
 

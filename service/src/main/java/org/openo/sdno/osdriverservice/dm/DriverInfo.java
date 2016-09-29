@@ -32,6 +32,8 @@ public class DriverInfo {
 
     private String driverName;
 
+    private String instanceID;
+
     private String ip;
 
     private String port;
@@ -43,6 +45,15 @@ public class DriverInfo {
 
     public String getDriverName() {
         return driverName;
+    }
+
+    public String getInstanceID() {
+        return instanceID;
+    }
+
+
+    public void setInstanceID(String instanceID) {
+        this.instanceID = instanceID;
     }
 
     public void setDriverName(String driverName) {
