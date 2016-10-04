@@ -16,6 +16,8 @@
 
 package org.openo.sdno.osdriverservice.sbi;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 
@@ -34,6 +36,7 @@ import org.openo.sdno.osdriverservice.openstack.client.OpenStackCredentials;
 import org.openo.sdno.osdriverservice.openstack.client.exception.OpenStackException;
 import org.openo.sdno.osdriverservice.rest.CloseableHttpResponseMock;
 import org.openo.sdno.osdriverservice.sbi.IpSecSbiService;
+import org.openo.sdno.osdriverservice.sbi.model.OsIpSec;
 import org.openo.sdno.osdriverservice.sbi.model.OsIpSec.Underlays;
 
 import mockit.Mock;
@@ -72,6 +75,7 @@ public class IpSecServiceTest {
         attributes.setVpnIpSecSiteConnectionId("vpnIpSecSiteConnectionId", "action");
         attributes.setVpnServiceId("vpnServiceId", "action");
         ipsec.setAttributes(attributes);
-        ipSecService.createIpSec(ipsec );
+        OsIpSec resultOsIpSec = ipSecService.createIpSec(ipsec );
+        assertNotNull(resultOsIpSec);
     }
 }

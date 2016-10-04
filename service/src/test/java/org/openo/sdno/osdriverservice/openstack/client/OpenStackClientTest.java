@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.openo.sdno.osdriverservice.openstack.client.exception.OpenStackException;
 import org.openo.sdno.osdriverservice.openstack.client.http.HttpInput;
@@ -37,8 +38,8 @@ public class OpenStackClientTest {
 
     OpenStackClient client = null;
 
-    @Test(expected = OpenStackException.class)
-    public void testGetRounterException() throws OpenStackException {
+    @Before
+    public void setUp() throws Exception {
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
@@ -47,6 +48,11 @@ public class OpenStackClientTest {
             }
 
         };
+    }
+
+    @Test(expected = OpenStackException.class)
+    public void testGetRounterException() throws OpenStackException {
+
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
@@ -59,18 +65,8 @@ public class OpenStackClientTest {
 
         this.client.getRounter("test123");
     }
-
-    // TODO : check why JSONException is comming
     @Test(expected = Exception.class)
     public void testGetRounterException2() throws OpenStackException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
@@ -95,14 +91,6 @@ public class OpenStackClientTest {
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
             public HttpResult get(HttpInput input) throws OpenStackException {
                 HttpResult response = new HttpResult();
                 List<String> list = new ArrayList<String>();
@@ -119,14 +107,6 @@ public class OpenStackClientTest {
 
     @Test(expected = Exception.class)
     public void testGetRounterException4() throws OpenStackException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock

@@ -16,11 +16,14 @@
 
 package org.openo.sdno.osdriverservice.util;
 
+import static org.junit.Assert.assertNotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
+import org.openo.sdno.osdriverservice.openstack.client.OpenStackClient;
 import org.openo.sdno.overlayvpn.brs.invdao.CommParamDao;
 import org.openo.sdno.overlayvpn.brs.invdao.ControllerDao;
 import org.openo.sdno.overlayvpn.brs.model.AuthInfo;
@@ -61,7 +64,7 @@ public class ControllerUtilTest {
                 return list;
             }
         };
-        ControllerUtil.createOpenStackClient("test123");
-
+        OpenStackClient client = ControllerUtil.createOpenStackClient("test123");
+        assertNotNull(client);
     }
 }

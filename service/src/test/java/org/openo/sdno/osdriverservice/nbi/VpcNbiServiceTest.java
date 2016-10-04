@@ -60,10 +60,7 @@ public class VpcNbiServiceTest {
         this.network.setName("network123");
         this.network.setProjectId("test/osdriver");
         this.service = new VpcNbiService();
-    }
 
-    @Test
-    public void testCreateVpcNormal() throws ServiceException {
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
@@ -72,6 +69,10 @@ public class VpcNbiServiceTest {
             }
 
         };
+    }
+
+    @Test
+    public void testCreateVpcNormal() throws ServiceException {
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -129,14 +130,6 @@ public class VpcNbiServiceTest {
 
     @Test(expected = ServiceException.class)
     public void testCreateVpcException() throws ServiceException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -180,14 +173,6 @@ public class VpcNbiServiceTest {
 
     @Test(expected = ServiceException.class)
     public void testCreateVpcExceptionInProjectId() throws ServiceException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -213,14 +198,6 @@ public class VpcNbiServiceTest {
 
     @Test
     public void testDeleteVpcNormal() throws ServiceException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
@@ -270,14 +247,6 @@ public class VpcNbiServiceTest {
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
             public HttpResult delete(final HttpInput input) throws OpenStackException {
                 HttpResult result = new HttpResult();
                 result.setStatus(200);
@@ -321,14 +290,6 @@ public class VpcNbiServiceTest {
 
     @Test(expected = ServiceException.class)
     public void testDeleteVpcExceptionInDeleteRouter() throws ServiceException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -366,14 +327,6 @@ public class VpcNbiServiceTest {
 
     @Test
     public void testDeleteVpcExceptionInDeleteRouter2() throws ServiceException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -412,14 +365,6 @@ public class VpcNbiServiceTest {
 
     @Test
     public void testDeleteVpcException() throws ServiceException {
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackHttpConnection>() {
 
             @Mock
@@ -486,24 +431,10 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
             public Network getNetwork(String name) {
-                /*
-                 * Network network = new Network();
-                 * network.setAdminStateUp(true); network.setId("id1234");
-                 * network.setName("network123");
-                 * network.setProjectId("test/osdriver");
-                 */
                 return VpcNbiServiceTest.this.network;
             }
 
@@ -566,14 +497,6 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -619,14 +542,6 @@ public class VpcNbiServiceTest {
                 mapping.setUuid("uuid123");
                 mappingList.add(mapping);
                 return mappingList;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
             }
 
         };
@@ -701,14 +616,6 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -769,14 +676,6 @@ public class VpcNbiServiceTest {
                 mapping.setUuid("uuid123");
                 mappingList.add(mapping);
                 return mappingList;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
             }
 
         };
@@ -847,14 +746,6 @@ public class VpcNbiServiceTest {
                 mapping.setUuid("uuid123");
                 mappingList.add(mapping);
                 return mappingList;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
             }
 
         };
@@ -929,14 +820,6 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -993,14 +876,6 @@ public class VpcNbiServiceTest {
                 mapping.setUuid("uuid123");
                 mappingList.add(mapping);
                 return mappingList;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
             }
 
         };
@@ -1063,14 +938,6 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -1127,14 +994,6 @@ public class VpcNbiServiceTest {
                 mapping.setUuid("uuid123");
                 mappingList.add(mapping);
                 return mappingList;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
             }
 
         };
@@ -1197,14 +1056,6 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -1263,14 +1114,6 @@ public class VpcNbiServiceTest {
             }
 
         };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
-            }
-
-        };
         new MockUp<OpenStackClient>() {
 
             @Mock
@@ -1326,14 +1169,6 @@ public class VpcNbiServiceTest {
                 mapping.setUuid("uuid123");
                 mappingList.add(mapping);
                 return mappingList;
-            }
-
-        };
-        new MockUp<OpenStackHttpConnection>() {
-
-            @Mock
-            public void login() throws OpenStackException {
-                return;
             }
 
         };

@@ -61,8 +61,8 @@ public class ClientModelTest {
         obj.setProjectId("10");
         assertEquals("10", obj.getProjectId());
 
-        obj.getIpVersion();
-        System.out.println(obj.getIpVersion());
+        obj.setIpVersion("6");
+        assertEquals("6", obj.getIpVersion());
     }
 
     @Test

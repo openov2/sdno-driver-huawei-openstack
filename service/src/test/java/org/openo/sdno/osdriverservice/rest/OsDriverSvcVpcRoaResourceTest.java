@@ -42,6 +42,7 @@ import org.apache.poi.ss.formula.functions.T;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.osdriverservice.dao.model.OverlayUnderlayMapping;
@@ -67,6 +68,21 @@ public class OsDriverSvcVpcRoaResourceTest {
 
     OsDriverSvcVpcRoaResource roaVPC = new OsDriverSvcVpcRoaResource();
 
+    @Before
+    public void setUp(){
+        new MockUp<CloseableHttpClient>() {
+
+            @Mock
+            public CloseableHttpResponse execute(final HttpUriRequest request)
+                    throws IOException, ClientProtocolException {
+                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
+                org.apache.http.message.BasicStatusLine bs =
+                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
+                resp.setStatusLine(bs);
+                return (CloseableHttpResponse)resp;
+            }
+        };
+    }
     @Test
     public void testCreateVpc() throws ServiceException {
         new MockUp<ControllerDao>() {
@@ -102,18 +118,6 @@ public class OsDriverSvcVpcRoaResourceTest {
             public String toString(final HttpEntity entity, final Charset defaultCharset)
                     throws IOException, ParseException {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
-            }
-        };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
             }
         };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
@@ -214,18 +218,6 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
             }
         };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
-            }
-        };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
 
             @Mock
@@ -317,18 +309,6 @@ public class OsDriverSvcVpcRoaResourceTest {
             }
         };
 
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
-            }
-        };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
 
             @Mock
@@ -453,18 +433,6 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
             }
         };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
-            }
-        };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
 
             @Mock
@@ -581,18 +549,6 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
             }
         };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
-            }
-        };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
 
             @Mock
@@ -692,18 +648,6 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
             }
         };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
-            }
-        };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
 
             @Mock
@@ -796,18 +740,6 @@ public class OsDriverSvcVpcRoaResourceTest {
             public String toString(final HttpEntity entity, final Charset defaultCharset)
                     throws IOException, ParseException {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}], \"subnets\": [{\"name\":\"hi\"}]}";
-            }
-        };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
             }
         };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
@@ -916,18 +848,6 @@ public class OsDriverSvcVpcRoaResourceTest {
             public String toString(final HttpEntity entity, final Charset defaultCharset)
                     throws IOException, ParseException {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}], \"subnets\": [{\"name\":\"hi\"}]}";
-            }
-        };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
             }
         };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
@@ -1039,18 +959,6 @@ public class OsDriverSvcVpcRoaResourceTest {
             public String toString(final HttpEntity entity, final Charset defaultCharset)
                     throws IOException, ParseException {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
-            }
-        };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
             }
         };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
@@ -1173,18 +1081,6 @@ public class OsDriverSvcVpcRoaResourceTest {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
             }
         };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
-            }
-        };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {
 
             @Mock
@@ -1303,18 +1199,6 @@ public class OsDriverSvcVpcRoaResourceTest {
             public String toString(final HttpEntity entity, final Charset defaultCharset)
                     throws IOException, ParseException {
                 return "{\"token\": {\"catalog\": [{\"type\":\"network\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}, {\"type\":\"type\",\"endpoints\":[{\"interface\":\"public\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]},{\"type\":\"network\",\"endpoints\":[{\"interface\":\"publics\", \"url\":\"huawai.com\", \"region_id\":\"123\"}]}]}, \"projects\": [], \"networks\": [{\"name\":\"hi\"}], \"routers\": [{\"name\":\"hi\"}]}";
-            }
-        };
-        new MockUp<CloseableHttpClient>() {
-
-            @Mock
-            public CloseableHttpResponse execute(final HttpUriRequest request)
-                    throws IOException, ClientProtocolException {
-                CloseableHttpResponseMock resp = new CloseableHttpResponseMock();
-                org.apache.http.message.BasicStatusLine bs =
-                        new org.apache.http.message.BasicStatusLine(new ProtocolVersion("bgp", 2, 1), 200, "success");
-                resp.setStatusLine(bs);
-                return (CloseableHttpResponse)resp;
             }
         };
         new MockUp<org.openo.sdno.framework.container.util.JsonUtil>() {

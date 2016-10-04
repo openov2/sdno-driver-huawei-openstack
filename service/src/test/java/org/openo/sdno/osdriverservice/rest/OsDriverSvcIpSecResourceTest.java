@@ -16,6 +16,8 @@
 
 package org.openo.sdno.osdriverservice.rest;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -54,6 +56,7 @@ import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.model.ipsec.IkePolicy;
 import org.openo.sdno.overlayvpn.model.ipsec.IpSecPolicy;
 import org.openo.sdno.overlayvpn.model.netmodel.ipsec.DcGwIpSecConnection;
+import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
 
 import mockit.Mock;
@@ -203,8 +206,8 @@ public class OsDriverSvcIpSecResourceTest {
         dcGwIpSecConnection.setPeerAddress("peerAddress");
         List<DcGwIpSecConnection> ipSecConnList = new ArrayList<DcGwIpSecConnection>();
         ipSecConnList.add(dcGwIpSecConnection);
-        roaSource.createIpSec(request, "ctrlUUIT", ipSecConnList);
-
+        ResultRsp<List<DcGwIpSecConnection>> result = roaSource.createIpSec(request, "ctrlUUIT", ipSecConnList);
+        assertTrue(result.getHttpCode() == 200);
     }
 
     @Test
@@ -347,7 +350,8 @@ public class OsDriverSvcIpSecResourceTest {
         dcGwIpSecConnection.setPeerAddress("peerAddress");
         List<DcGwIpSecConnection> ipSecConnList = new ArrayList<DcGwIpSecConnection>();
         ipSecConnList.add(dcGwIpSecConnection);
-        roaSource.createIpSec(request, "ctrlUUIT", ipSecConnList);
+        ResultRsp<List<DcGwIpSecConnection>> result = roaSource.createIpSec(request, "ctrlUUIT", ipSecConnList);
+        assertTrue(result.getHttpCode() == 200);
     }
 
     @Test(expected = ServiceException.class)
@@ -556,10 +560,11 @@ public class OsDriverSvcIpSecResourceTest {
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
         };
-        
+
         HttpServletRequest request = new MockHttpServletRequest();
         HttpServletResponse response = new MockHttpServletResponse();
-        roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
+        ResultRsp<String> result = roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
+        assertTrue(result.getHttpCode() == 200);
     }
 
     @Test
@@ -586,13 +591,6 @@ public class OsDriverSvcIpSecResourceTest {
                 obj3.setAction("action");
                 obj4.setAction("action");
                 obj5.setAction("action");
-                /*
-                 * list.add(obj1);
-                 * list.add(obj2);
-                 * list.add(obj3);
-                 * list.add(obj4);
-                 * list.add(obj5);
-                 */
                 return list;
             }
         };
@@ -659,11 +657,12 @@ public class OsDriverSvcIpSecResourceTest {
             @Mock
             public <T> void delete(Class<T> clazz, String uuid) throws ServiceException {
             }
-        };       
+        };
 
         HttpServletRequest request = new MockHttpServletRequest();
         HttpServletResponse response = new MockHttpServletResponse();
-        roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
+        ResultRsp<String> result = roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
+        assertTrue(result.getHttpCode()==200);
     }
 
 }
