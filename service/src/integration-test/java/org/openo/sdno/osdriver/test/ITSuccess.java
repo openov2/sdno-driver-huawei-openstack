@@ -28,7 +28,7 @@ import org.openo.sdno.testframework.http.model.HttpResponse;
 import org.openo.sdno.testframework.http.model.HttpRquestResponse;
 import org.openo.sdno.testframework.testmanager.TestManager;
 
-public class ITSuccessTest extends TestManager {
+public class ITSuccess extends TestManager {
 
     private static final String CREATE_VPC_SUCCESS_TESTCASE =
             "src/integration-test/resources/testcase_jsons/createvpcsuccess.json";
