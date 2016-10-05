@@ -1,10 +1,10 @@
 {
     "request": {
-        "uri": "/openstackdriverservice/openoapi/sbi-vpc/v1/subnets",
+        "uri": "/openoapi/sbi-vpc/v1/subnets",
         "method": "post",
         "headers": {
             "Content-Type": "application/json",
-            "X-Driver-Parameter": "extSysID=TEST"
+            "X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
         },
         "json": {
             "name": "test",

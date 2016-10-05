@@ -1,6 +1,6 @@
 {
     "request": {
-        "uri": "/openstackdriverservice/openoapi/sbi-vpc/v1/vpcs/9b00d6b0-6c93-4ca5-9747-b8ade7bb5123",
+        "uri": "/openoapi/sbi-vpc/v1/vpcs/9b00d6b0-6c93-4ca5-9747-b8ade7bb5123",
         "method": "delete",
         "headers": {
             "Content-Type": "application/json;charset=UTF-8",

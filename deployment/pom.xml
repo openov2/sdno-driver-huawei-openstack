@@ -57,11 +57,13 @@
                                 ant.mkdir(dir:
                                 "${deployFolder}")
 
+
                                 ant.delete(dir: "${deployUnzip}")
                                 ant.mkdir(dir: "${deployUnzip}")
 
                                 ant.mkdir(dir:
                                 "${deployUnzip}/webapps/")
+                                ant.mkdir(dir: "${deployUnzip}/webapps/ROOT")
                                 ant.mkdir(dir:
                                 "${deployUnzip}/logs")
 
@@ -70,7 +72,8 @@
                                 exclude(name: "**/.gitignore")
                                 }
                                 }
-                                ant.copy(todir: "${deployUnzip}/webapps/${package.name}") {
+                                ant.copy(todir:
+                                "${deployUnzip}/webapps/ROOT") {
                                 fileset(dir:
                                 "${project.build.directory}/../../service/target/${package.name}")
                                 }

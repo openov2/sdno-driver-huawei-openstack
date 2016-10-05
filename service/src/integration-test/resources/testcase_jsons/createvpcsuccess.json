@@ -1,10 +1,10 @@
 {
     "request": {
-        "uri": "/openstackdriverservice/openoapi/sbi-vpc/v1/vpcs",
+        "uri": "/openoapi/sbi-vpc/v1/vpcs",
         "method": "post",
         "headers": {
             "Content-Type": "application/json",
-            "X-Driver-Parameter": "extSysID=TEST"
+            "X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
         },
         "json": {
             "name": "default/project4",
@@ -12,7 +12,7 @@
             "status": "Creating",
             "statusReason": null,
             "externalIp": null,
-            "osControllerId": "TEST",
+            "osControllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
             "createdAt": null,
             "updatedAt": null,
             "attributes": null,
@@ -27,7 +27,7 @@
             "status": "Creating",
             "statusReason": null,
             "externalIp": "172.24.4.3",
-            "osControllerId": "TEST",
+            "osControllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
             "createdAt": null,
             "updatedAt": null,
             "attributes": null,
