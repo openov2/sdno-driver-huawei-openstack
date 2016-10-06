@@ -1,0 +1,39 @@
+{
+    "request": {
+        "uri": "/openoapi/sbi-vpc/v1/subnets",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
+        },
+        "json": {
+            "name": "test",
+            "description": null,
+            "status": "Creating",
+            "statusReason": null,
+            "adminStatus": null,
+            "cidr": "10.11.0.0/24",
+            "vpcId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb514f",
+            "gatewayIp": null,
+            "createdAt": null,
+            "updatedAt": null,
+            "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674412"
+        }
+    },
+    "response": {
+        "status": 201,
+        "json": {
+            "name": "test",
+            "description": null,
+            "status": "Creating",
+            "statusReason": null,
+            "adminStatus": "up",
+            "cidr": "10.11.0.0/24",
+            "vpcId": "9b00d6b0-6c93-4ca5-9747-b8ade7bb514f",
+            "gatewayIp": "10.11.0.1",
+            "createdAt": null,
+            "updatedAt": null,
+            "id": "6fc00cf5-ff29-4f45-a8a6-f03d73674412"
+        }
+    }
+}

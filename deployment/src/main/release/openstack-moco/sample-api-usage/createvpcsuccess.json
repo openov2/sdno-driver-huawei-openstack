@@ -1,0 +1,37 @@
+{
+    "request": {
+        "uri": "/openoapi/sbi-vpc/v1/vpcs",
+        "method": "post",
+        "headers": {
+            "Content-Type": "application/json",
+            "X-Driver-Parameter": "extSysID=81244ad0-b4ea-41ed-969e-d5588b32fd4c"
+        },
+        "json": {
+            "name": "default/project4",
+            "description": "test vpc",
+            "status": "Creating",
+            "statusReason": null,
+            "externalIp": null,
+            "osControllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+            "createdAt": null,
+            "updatedAt": null,
+            "attributes": null,
+            "id": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5123"
+        }
+    },
+    "response": {
+        "status": 201,
+        "json": {
+            "name": "default/project4",
+            "description": "test vpc",
+            "status": "Creating",
+            "statusReason": null,
+            "externalIp": "172.24.4.3",
+            "osControllerId": "81244ad0-b4ea-41ed-969e-d5588b32fd4c",
+            "createdAt": null,
+            "updatedAt": null,
+            "attributes": null,
+            "id": "9b00d6b0-6c93-4ca5-9747-b8ade7bb5123"
+        }
+    }
+}
