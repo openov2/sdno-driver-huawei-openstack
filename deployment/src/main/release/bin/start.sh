@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #*******************************************************************************
 # Copyright 2016 Huawei Technologies Co., Ltd.
 #
@@ -14,7 +16,6 @@
 # limitations under the License.
 #*******************************************************************************
 
-#!/bin/bash
 cd ..
 export CATALINA_BASE=$(cd `dirname $0`; pwd)
 
