@@ -36,7 +36,7 @@
     </listener>
 
     <listener>
-        <listener-class>org.openo.sdno.osdriverservice.dm.DriverRegistrarListener</listener-class>
+        <listener-class>org.openo.sdno.osdriverservice.dm.DriverRegistration</listener-class>
     </listener>
     <context-param>
         <param-name>contextConfigLocation</param-name>

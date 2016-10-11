@@ -127,7 +127,8 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
                 return new OpenStackCredentials().setIp(url.getHost()).setPort(Integer.toString(url.getPort()))
                         .setUsername((String)controllerMap.get("userName"))
                         .setPassword((String)controllerMap.get("password"))
-                        .setDomain((String)controllerMap.get("domain"));
+                        .setDomain((String)controllerMap.get("domain"))
+                        .setSecured(url.getProtocol().equalsIgnoreCase("https"));
             } catch(Exception ex) {
                 LOGGER.error("Error in getting controller", ex);
                 throw new ServiceException("Error in getting controller", ex);
@@ -148,7 +149,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
         OSDriverConfig config = new OSDriverConfig();
         if(config.isEsrEnabled()) {
             Map<String, Object> controllerMap = ESRutil.getControllerDetails(ctrlUuid);
-        //TODO(mrkanag) Remove the hard-coding if region, once ESR allows to have region as configurable
+            //TODO(mrkanag) Remove the hard-coding if region, once ESR allows to have region as configurable
             return controllerMap.get("region") == null ? "RegionOne" : (String)controllerMap.get("region");
         }
         ControllerMO controller = (new ControllerDao()).getController(ctrlUuid);
