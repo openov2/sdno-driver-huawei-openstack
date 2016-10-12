@@ -1,0 +1,29 @@
+{
+    "driverInfo": {
+        "driverName": "sdnoopenstackdriver-0-1",
+        "instanceID": "sdnoopenstackdriver-0-1",
+        "ip": "",
+        "port": "8539",
+        "protocol": "http",
+        "services": [
+            {
+                "service_url": "/openoapi/sbi-vpc/v1",
+                "support_sys": [
+                    {
+                        "type": "Agile Controller-DC",
+                        "version": "V200R001C00"
+                    }
+                ]
+            },
+            {
+                "service_url": "/openoapi/sbi-ipsec/v1/dc-gateway",
+                "support_sys": [
+                    {
+                        "type": "Agile Controller-DC",
+                        "version": "V200R001C00"
+                    }
+                ]
+            }
+        ]
+    }
+}
