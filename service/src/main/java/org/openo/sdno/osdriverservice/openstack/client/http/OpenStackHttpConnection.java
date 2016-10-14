@@ -252,7 +252,12 @@ public class OpenStackHttpConnection {
                     String interf = endpoints.getJSONObject(j).getString("interface");
 
                     if("public".equals(interf)) {
-                        String url = endpoints.getJSONObject(j).getString("url");
+                        String url;
+                        if("identity".equals(supportedServiceType.getName())) {
+                            url = this.getAuthUrl();
+                        } else {
+                            url = endpoints.getJSONObject(j).getString("url");
+                        }
                         String region = endpoints.getJSONObject(j).getString("region_id");
 
                         this.regionCache.getEndpointCacheFor(region).addEndpoint(supportedServiceType, url);
@@ -367,7 +372,9 @@ public class OpenStackHttpConnection {
     private void addCommonHeaders(HttpInput input) {
         input.getReqHeaders().put("Content-Type", APPLICATION_JSON);
         input.getReqHeaders().put("Accept", APPLICATION_JSON);
-        input.getReqHeaders().put("X-Auth-Token", this.credentials.getToken());
+        if(this.credentials.getToken() != null) {
+            input.getReqHeaders().put("X-Auth-Token", this.credentials.getToken());
+        }
     }
 
     private HttpResult commonRequest(HttpInput input) throws OpenStackException {
