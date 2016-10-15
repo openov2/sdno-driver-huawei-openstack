@@ -26,7 +26,7 @@ import org.openo.sdno.osdriverservice.openstack.client.OpenStackServiceContext;
  * <br>
  *
  * @author
- * @version SDNO 0.5 Jul 31, 2016
+ * @version SDNO 0.5 July 31, 2016
  */
 public class HttpInput {
 

@@ -40,7 +40,7 @@ public class VpnService extends BaseDataModel {
     private String status;
 
     /**
-     * Vpnservice admin state, it doesn't transfer data if the state is false.
+     * VpnService administrator state, it doesn't transfer data if the state is false.
      */
     @JsonProperty("admin_state_up")
     private boolean adminStateUp;

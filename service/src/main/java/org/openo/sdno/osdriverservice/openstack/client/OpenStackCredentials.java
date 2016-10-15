@@ -19,11 +19,11 @@ package org.openo.sdno.osdriverservice.openstack.client;
 /**
  * OpenStack credentials required to connect to OpenStack
  * cloud.
- * By default, it uses http port 5000 on default OpenStack domain.
+ * By default, it uses HTTP port 5000 on default OpenStack domain.
  * <br>
  *
  * @author
- * @version SDNO 0.5 Jul 31, 2016
+ * @version SDNO 0.5 July 31, 2016
  */
 public class OpenStackCredentials {
 

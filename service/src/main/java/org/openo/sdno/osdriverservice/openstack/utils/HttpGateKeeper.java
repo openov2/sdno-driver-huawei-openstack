@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
  * </p>
  *
  * @author
- * @version SDNO 0.5 Aug 5, 2016
+ * @version SDNO 0.5 August 5, 2016
  */
 public class HttpGateKeeper {
 

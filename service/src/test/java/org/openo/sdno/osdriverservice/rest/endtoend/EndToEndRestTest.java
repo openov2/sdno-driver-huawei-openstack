@@ -30,7 +30,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.osdriverservice.openstack.mock.OpenStackSuccessMockServer;
@@ -42,10 +41,15 @@ import org.openo.sdno.overlayvpn.model.netmodel.vpc.Subnet;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Vpc;
 import org.openo.sdno.overlayvpn.result.ResultRsp;;
 
+/**
+ * Test rest calls end to end.
+ * 
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class EndToEndRestTest {
 
-    public static final String URL =
-            "http://localhost:8080/org.openo.sdno.osdriverservice/openapi";
+    public static final String URL = "http://localhost:8080/org.openo.sdno.osdriverservice/openapi";
 
     private HttpClient httpClient = HttpClients.createDefault();
 
@@ -81,7 +85,7 @@ public class EndToEndRestTest {
             Subnet subnet = rsc.createSubnet(null, null, "TEST", JsonUtil.fromJson(subnetJson, Subnet.class));
 
             String ipsecJson = Utils.getSampleJson("sample_ipsec.json");
-            List <DcGwIpSecConnection> ipSecCons = new ArrayList<>();
+            List<DcGwIpSecConnection> ipSecCons = new ArrayList<>();
             DcGwIpSecConnection ipSecCon = JsonUtil.fromJson(ipsecJson, DcGwIpSecConnection.class);
             ipSecCon.setTenantId(vpc.getAttributes().getProjectId());
             ipSecCon.setSubnetId(subnet.getAttributes().getSubnetId());
@@ -90,7 +94,7 @@ public class EndToEndRestTest {
             ipSecCon.getIpSecPolicy().setTenantId(ipSecCon.getTenantId());
             ipSecCon.setVpcId(vpc.getUuid());
             ipSecCons.add(ipSecCon);
-            ResultRsp<List<DcGwIpSecConnection>> ipsecResp = rscIpSec.createIpSec(null, "TEST",  ipSecCons);
+            ResultRsp<List<DcGwIpSecConnection>> ipsecResp = rscIpSec.createIpSec(null, "TEST", ipSecCons);
             rscIpSec.deleteIpSec(null, "TEST", ipsecResp.getData().get(0).getUuid());
             rsc.deleteSubnet(null, null, "TEST", subnet.getUuid());
             rsc.deleteVpc(null, null, "TEST", vpc.getUuid());
@@ -125,14 +129,14 @@ public class EndToEndRestTest {
         this.delete("/sbi-vpc/v1/vpcs/" + vpc.getUuid());
     }
 
-    //@Test
+    // @Test
     public void verifyDirect() throws ServiceException {
         OpenStackSuccessMockServer server = new OpenStackSuccessMockServer();
         EndToEndRestTest verify = new EndToEndRestTest();
         try {
             server.start();
             verify.verifyOSDDirect();
-        } catch (Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         } finally {
             server.stop();
@@ -142,7 +146,7 @@ public class EndToEndRestTest {
     public static void main(String[] args) {
         try {
             new EndToEndRestTest().verifyOSDDirect();
-        } catch (ServiceException e) {
+        } catch(ServiceException e) {
             e.printStackTrace();
         }
     }

@@ -128,7 +128,7 @@ public class DriverRegistration implements ServletContextListener {
         LOGGER.error("Registering body: " + JsonUtil.toJson(dmRegistrationBodyMap));
 
         // If the registration is unsuccessful re-attempt the driver registration.
-        // If the registration is successful then finish the task by cancelling it.
+        // If the registration is successful then finish the task by canceling it.
         scheduler = scheduledExecutorService.scheduleAtFixedRate(() -> {
             try {
                 LOGGER.info("Start registering to driver manager");

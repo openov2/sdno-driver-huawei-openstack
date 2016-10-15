@@ -27,8 +27,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.mock.web.MockHttpServletRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
@@ -60,10 +58,18 @@ import org.openo.sdno.overlayvpn.brs.model.CommParamMO;
 import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Subnet;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Vpc;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * OsDriverSvc VPC RoaResource tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OsDriverSvcVpcRoaResourceTest {
 
     OsDriverSvcVpcRoaResource roaVPC = new OsDriverSvcVpcRoaResource();

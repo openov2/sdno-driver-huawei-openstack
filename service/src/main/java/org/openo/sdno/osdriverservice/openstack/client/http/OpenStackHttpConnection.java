@@ -63,7 +63,7 @@ import net.sf.json.JSONObject;
 
 /**
  * Helps to login/logout and sending restful requests to OpenStack.<br>
- * By default, its uses keystone v3 and http connection.
+ * By default, its uses key store v3 and HTTP connection.
  *
  * @author
  * @version SDNO 0.5 2016-6-22
@@ -78,10 +78,10 @@ public class OpenStackHttpConnection {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OpenStackHttpConnection.class);
 
-    // TODO(mrkanag) Pls keep cache of clients
+    // TODO(mrkanag) Please keep cache of clients
 
     /*
-     * Captures the list of endpoints from the auth token as part of login
+     * Captures the list of end points from the authorized token as part of login
      */
     static class EndpointCache {
 

@@ -27,7 +27,7 @@ import org.openo.sdno.osdriverservice.openstack.client.exception.OpenStackExcept
  * OpenStackException response provider.<br>
  *
  * @author
- * @version     SDNO 0.5  Aug 10, 2016
+ * @version SDNO 0.5 August 10, 2016
  */
 @Provider
 public class OpenStackExceptionMapper implements ExceptionMapper<OpenStackException> {

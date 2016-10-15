@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
  * </p>
  *
  * @author
- * @version     SDNO 0.5  Aug 8, 2016
+ * @version SDNO 0.5 August 8, 2016
  */
 public final class JsonUtil {
 
@@ -51,7 +51,7 @@ public final class JsonUtil {
     /**
      * <br>
      *
-     * @param obj Object to be JSON stringified.
+     * @param obj Object to be JSON string.
      * @return
      * @since SDNO 0.5
      */
@@ -62,7 +62,7 @@ public final class JsonUtil {
     /**
      * <br>
      *
-     * @param obj Object to be JSON stringified.
+     * @param obj Object to be JSON string.
      * @param considerRootName true if the rot value is to be considered.
      * @return
      * @since SDNO 0.5

@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
  * OsDriver Configuration Operation Class.<br/>
  *
  * @author
- * @version SDNO 0.5 Aug 9, 2016
+ * @version SDNO 0.5 August 9, 2016
  */
 public class OSDriverConfig {
 

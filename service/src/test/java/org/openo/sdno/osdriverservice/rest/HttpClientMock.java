@@ -30,7 +30,13 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 
-public class HttpClientMock extends CloseableHttpClient{
+/**
+ * Implementation of CloseableHttpClient.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
+public class HttpClientMock extends CloseableHttpClient {
 
     @Override
     public HttpParams getParams() {

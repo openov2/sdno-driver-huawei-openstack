@@ -35,6 +35,12 @@ import org.openo.sdno.overlayvpn.model.netmodel.ipsec.DcGwIpSecConnection;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Subnet;
 import org.openo.sdno.overlayvpn.model.netmodel.vpc.Vpc;
 
+/**
+ * MigrateModel Utility tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class MigrateModelUtilTest {
     @Test
     public void testConvert() {

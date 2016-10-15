@@ -86,13 +86,13 @@ public class Router {
      * </p>
      *
      * @author
-     * @version SDNO 0.5 Aug 8, 2016
+     * @version SDNO 0.5 August 8, 2016
      */
     @JsonRootName("external_gateway_info")
     public static class ExternalGatewayInfo {
 
         /**
-         * Network uuid
+         * Network UUID
          */
         @JsonProperty("network_id")
         private String networkId;

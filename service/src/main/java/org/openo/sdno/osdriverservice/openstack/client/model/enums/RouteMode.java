@@ -17,7 +17,7 @@
 package org.openo.sdno.osdriverservice.openstack.client.model.enums;
 
 /**
- * Enum class of route mode.<br>
+ * Enumeration class of route mode.<br>
  *
  * @author
  * @version SDNO 0.5 2016-6-20

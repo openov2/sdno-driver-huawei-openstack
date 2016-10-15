@@ -46,6 +46,12 @@ import org.openo.sdno.osdriverservice.util.DaoUtil;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * VPC NBI service tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class VpcNbiServiceTest {
 
     VpcNbiService service = null;

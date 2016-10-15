@@ -36,7 +36,7 @@ public class Network {
     private String name;
 
     /**
-     * Network admin state.
+     * Network administrator state.
      */
     @JsonProperty("admin_state_up")
     private boolean adminStateUp;

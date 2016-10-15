@@ -21,6 +21,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.openo.sdno.osdriverservice.dao.model.OverlayUnderlayMapping;
 
+/**
+ * Overlay to Underlay mapping tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OverlayUnderlayMappingTest {
 
     @Test

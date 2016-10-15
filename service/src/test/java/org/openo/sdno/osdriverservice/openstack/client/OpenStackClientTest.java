@@ -32,6 +32,12 @@ import org.openo.sdno.osdriverservice.openstack.utils.JsonUtil;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * Open Stack client tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OpenStackClientTest {
 
     OpenStackCredentials credentials = new OpenStackCredentials();

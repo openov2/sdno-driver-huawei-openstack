@@ -31,7 +31,7 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
 public class VpnIpSecSiteConnection extends BaseDataModel {
 
     /**
-     * Peer vpn address or FQDN.
+     * Peer VPN address or FQDN.
      */
     @JsonProperty("peer_address")
     private String peerAddress;
@@ -54,7 +54,7 @@ public class VpnIpSecSiteConnection extends BaseDataModel {
     private int mtu;
 
     /**
-     * psk or certificate.
+     * PSK or certificate.
      */
     @JsonProperty("auth_mode")
     private String authMode;
@@ -65,12 +65,12 @@ public class VpnIpSecSiteConnection extends BaseDataModel {
     private String psk;
 
     /**
-     * Whether this vpn can only respond to connections or can initiate an well.
+     * Whether this VPN can only respond to connections or can initiate an well.
      */
     private String initiator;
 
     /**
-     * Vpn connection admin state.
+     * VPN connection administrator state.
      */
     @JsonProperty("admin_state_up")
     private boolean adminStateUp;

@@ -26,6 +26,12 @@ import org.openo.sdno.testframework.http.model.HttpRquestResponse;
 import org.openo.sdno.testframework.moco.MocoHttpServer;
 import org.openo.sdno.testframework.moco.responsehandler.MocoResponseHandler;
 
+/**
+ * Implementation of MocoHttpServer.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class GenericMockServer extends MocoHttpServer {
 
     private List<String> mockJsons = new ArrayList();

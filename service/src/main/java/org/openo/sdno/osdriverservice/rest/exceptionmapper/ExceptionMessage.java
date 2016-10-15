@@ -22,7 +22,7 @@ import org.apache.http.HttpStatus;
  * Exception response model.<br>
  *
  * @author
- * @version SDNO 0.5 Aug 10, 2016
+ * @version SDNO 0.5 August 10, 2016
  */
 public class ExceptionMessage {
 

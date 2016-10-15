@@ -30,7 +30,13 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.params.HttpParams;
 
-public class CloseableHttpResponseMock implements CloseableHttpResponse{
+/**
+ * Implementation of CloseableHttpResponse.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
+public class CloseableHttpResponseMock implements CloseableHttpResponse {
 
     private int statusCode;
     StatusLine statusline;
@@ -190,14 +196,12 @@ public class CloseableHttpResponseMock implements CloseableHttpResponse{
     @Override
     public Header[] getAllHeaders() {
         // TODO Auto-generated method stub
-        Header[] headers = {
-                        new BasicHeader("Content-type", "application/x-www-form-urlencoded")
-                        ,new BasicHeader("Content-type", "application/x-www-form-urlencoded")
-                        ,new BasicHeader("Accep", "text/html,text/xml,application/xml")
-                        ,new BasicHeader("Connection", "keep-alive")
-                        ,new BasicHeader("keep-alive", "115")
-                        ,new BasicHeader("User-Agent", "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2")
-                    };
+        Header[] headers = {new BasicHeader("Content-type", "application/x-www-form-urlencoded"),
+                        new BasicHeader("Content-type", "application/x-www-form-urlencoded"),
+                        new BasicHeader("Accep", "text/html,text/xml,application/xml"),
+                        new BasicHeader("Connection", "keep-alive"), new BasicHeader("keep-alive", "115"),
+                        new BasicHeader("User-Agent",
+                                "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2")};
         return headers;
     }
 

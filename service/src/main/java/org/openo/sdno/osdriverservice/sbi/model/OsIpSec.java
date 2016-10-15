@@ -99,7 +99,7 @@ public class OsIpSec {
      * </p>
      *
      * @author
-     * @version     SDNO 0.5  Aug 8, 2016
+     * @version SDNO 0.5 August 8, 2016
      */
     public static class Underlays extends BaseUnderlays{
 
@@ -116,7 +116,7 @@ public class OsIpSec {
         }
 
         /**
-         * Set vpn service ID
+         * Set VpnService ID
          * <br>
          *
          * @param vpnServiceId
@@ -134,7 +134,7 @@ public class OsIpSec {
         }
 
         /**
-         * Set vpn ike policy ID
+         * Set VpnIkePolicy ID
          * <br>
          *
          * @param vpnIkePolicyId
@@ -152,7 +152,7 @@ public class OsIpSec {
         }
 
         /**
-         * Set vpn ipsec policy ID
+         * Set VpnIpsecPolicy ID
          * <br>
          *
          * @param vpnIpSecPolicyId
@@ -170,7 +170,7 @@ public class OsIpSec {
         }
 
         /**
-         * Set vpn ip sec site connection ID
+         * Set VpnIpSecSite connection ID
          * <br>
          *
          * @param vpnIpSecSiteConnectionId

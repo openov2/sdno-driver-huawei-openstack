@@ -27,13 +27,13 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
  * </p>
  *
  * @author
- * @version     SDNO 0.5  Jul 31, 2016
+ * @version SDNO 0.5 July 31, 2016
  */
 @MOResType(infoModelName = "osdriverunderlays")
 public class OverlayUnderlayMapping extends AbstUuidModel {
 
     /**
-     * Overlay Uuid such as VPC, Subnet, etc.
+     * Overlay UUID such as VPC, Subnet, etc.
      */
     @AString(require = true)
     private String overlayId;
@@ -45,13 +45,13 @@ public class OverlayUnderlayMapping extends AbstUuidModel {
     private String overlayType;
 
     /**
-     * OpenStack Controller uuid.
+     * OpenStack Controller UUID.
      */
     @AString(require = true)
     private String controllerId;
 
     /**
-     * OpenStack resource Uuid, which is created, used or deleted
+     * OpenStack resource UUID, which is created, used or deleted
      * as part of Overlay resource.
      */
     @AString(require = true)
@@ -64,17 +64,17 @@ public class OverlayUnderlayMapping extends AbstUuidModel {
     private String underlayType;
 
     /**
-     * It could be one of "c" for created,  "u" for used
+     * It could be one of "c" for created, "u" for used
      * and "d" for deleted as part of Overlay resource provision
      * or de-provision.
      */
     @AString(require = true)
     private String action;
 
-    //TODO(mrkanag) Add underlay URL to the underlayId
+    // TODO(mrkanag) Add underlay URL to the underlayId
 
     /**
-     * OpenStack tenant uuid
+     * OpenStack tenant UUID
      */
     private String underlayTenantId;
 
