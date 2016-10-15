@@ -23,7 +23,7 @@ package org.openo.sdno.osdriverservice.openstack.client;
  * </p>
  *
  * @author
- * @version SDNO 0.5 Jul 28, 2016
+ * @version SDNO 0.5 July 28, 2016
  */
 public enum OpenStackServiceType {
     NETOWRK("network"), IDENTITY("identity");
@@ -39,7 +39,7 @@ public enum OpenStackServiceType {
     }
 
     /**
-     * Get enum by given type name.
+     * Get enumeration by given type name.
      * <br>
      *
      * @param typeName

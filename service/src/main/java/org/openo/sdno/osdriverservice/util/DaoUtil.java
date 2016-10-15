@@ -23,14 +23,13 @@ import org.openo.sdno.osdriverservice.dao.DaoInMemory;
 import org.openo.sdno.osdriverservice.dao.inf.IDao;
 
 /**
- *
- * DAO Util class<br>
+ * DAO Utility class<br>
  * <p>
  * </p>
  *
  * @param <T>
  * @author
- * @version     SDNO 0.5  Aug 6, 2016
+ * @version SDNO 0.5 August 6, 2016
  */
 public class DaoUtil<T> {
 
@@ -62,7 +61,7 @@ public class DaoUtil<T> {
      * @param entity
      * @return
      * @throws ServiceException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static <T> T  insert(T entity) throws ServiceException {
         return (T) dao.insert(entity);

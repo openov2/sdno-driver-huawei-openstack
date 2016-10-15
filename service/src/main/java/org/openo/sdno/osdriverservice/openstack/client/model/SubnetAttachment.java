@@ -19,14 +19,14 @@ package org.openo.sdno.osdriverservice.openstack.client.model;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
- * Model class for subnet attachment with router.<br>
+ * Model class for Subnet attachment with router.<br>
  *
  * @author
  * @version SDNO 0.5 2016-6-15
  */
 public class SubnetAttachment {
     /**
-     * Subnet uuid.
+     * Subnet UUID.
      */
     @JsonProperty("subnet_id")
     private String subnetId;

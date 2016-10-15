@@ -25,7 +25,7 @@ import java.util.Map;
  * </p>
  *
  * @author
- * @version     SDNO 0.5  Aug 8, 2016
+ * @version SDNO 0.5 August 8, 2016
  */
 public class BaseUnderlays {
 

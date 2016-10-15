@@ -172,7 +172,7 @@ public class VpcSbiService {
     }
 
     /**
-     * Delete subnet
+     * Delete Subnet
      * <br>
      *
      * @param underlays

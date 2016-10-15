@@ -47,7 +47,7 @@ public class VpcNbiService {
      * @since SDNO 0.5
      */
     public VpcNbiService() {
-        // Default Constuctor
+        // Default Constructor
     }
 
     /**
@@ -153,11 +153,11 @@ public class VpcNbiService {
 
         }
 
-        return subnetLocal;
+        return subnet;
     }
 
     /**
-     * To delete subnet.
+     * To delete Subnet.
      * <br>
      *
      * @param ctrlUuid

@@ -27,7 +27,7 @@ import org.openo.baseservice.remoteservice.exception.ServiceException;
  * ServiceException response provider.<br>
  *
  * @author
- * @version     SDNO 0.5  Aug 10, 2016
+ * @version SDNO 0.5 August 10, 2016
  */
 @Provider
 public class ServiceExceptionMapper implements ExceptionMapper<ServiceException>{

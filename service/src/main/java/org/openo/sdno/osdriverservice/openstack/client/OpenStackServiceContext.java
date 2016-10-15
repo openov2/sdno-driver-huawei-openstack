@@ -19,14 +19,14 @@ package org.openo.sdno.osdriverservice.openstack.client;
 /**
  * Helps to capture the OpenStack REST API version
  * and type, and is used in all OpenStackClient
- * java api to provide the right context for the API.
+ * java API to provide the right context for the API.
  * In addition, it captures the OpenStack region name.
  * <br>
  * <p>
  * </p>
  *
  * @author
- * @version     SDNO 0.5  Jul 31, 2016
+ * @version SDNO 0.5 July 31, 2016
  */
 public class OpenStackServiceContext {
     private OpenStackServiceType serviceType;

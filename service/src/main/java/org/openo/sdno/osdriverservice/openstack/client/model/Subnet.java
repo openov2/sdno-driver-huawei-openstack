@@ -36,7 +36,7 @@ public class Subnet {
     private String name;
 
     /**
-     * Network uuid.
+     * Network UUID.
      */
     @JsonProperty("network_id")
     private String networkId;

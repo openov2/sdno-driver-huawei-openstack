@@ -21,6 +21,12 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * Open Stack credentials tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OpenStackCredentialsTest {
 
     @Test

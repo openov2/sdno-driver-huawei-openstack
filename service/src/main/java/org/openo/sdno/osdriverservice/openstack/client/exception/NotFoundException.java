@@ -17,13 +17,13 @@
 package org.openo.sdno.osdriverservice.openstack.client.exception;
 
 /**
- * OpenStack Exception used to capture error code, http status code
+ * OpenStack Exception used to capture error code, HTTP status code
  * and error message.
  * <br>
  * <p>
  * </p>
  *
- * @version SDNO 0.5 Jul 31, 2016
+ * @version SDNO 0.5 July 31, 2016
  */
 public class NotFoundException extends OpenStackException {
 

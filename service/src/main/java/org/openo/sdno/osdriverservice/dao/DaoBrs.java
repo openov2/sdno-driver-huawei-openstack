@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  *
  * @param <T>
  * @author
- * @version SDNO 0.5 Aug 6, 2016
+ * @version SDNO 0.5 August 6, 2016
  */
 public class DaoBrs<T> implements IDao<T>, IControllerDao {
 

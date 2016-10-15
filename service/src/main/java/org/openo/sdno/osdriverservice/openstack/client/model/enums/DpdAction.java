@@ -17,7 +17,7 @@
 package org.openo.sdno.osdriverservice.openstack.client.model.enums;
 
 /**
- * Enum class of dpd action.<br>
+ * Enumeration class of Dpd action.<br>
  *
  * @author
  * @version SDNO 0.5 2016-6-21

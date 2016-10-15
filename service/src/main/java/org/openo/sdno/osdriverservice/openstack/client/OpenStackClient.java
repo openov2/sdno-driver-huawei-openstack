@@ -75,7 +75,7 @@ public class OpenStackClient {
             .setVersion(OpenStackServiceApiVersion.V3).setServiceType(OpenStackServiceType.IDENTITY);
 
     /**
-     * OpenStack http connection used to connect with
+     * OpenStack HTTP connection used to connect with
      * given OpenStack using the credentials.
      */
     private OpenStackHttpConnection osConnection = null;
@@ -135,7 +135,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Helps to make the http POST action, in which
+     * Helps to make the HTTP POST action, in which
      * the entity is in the form of {"entity-name" : {...}}
      * Example {"network": {"name:" "sample-nw"}}
      * <br>
@@ -237,7 +237,7 @@ public class OpenStackClient {
      * <br>
      *
      * @param context {@link OpenStackServiceContext}
-     * @param uri OpenStack resource uri with required query params
+     * @param uri OpenStack resource uri with required query parameters
      * @param cls OpenStack model entity class
      * @param collectionName Collection name reported in OpenStack
      *            list REST API
@@ -401,7 +401,7 @@ public class OpenStackClient {
      * URI: {@value #URI_SUBNET}?name=<name>
      * <br>
      *
-     * @param name OpenStack subnet name
+     * @param name OpenStack Subnet name
      * @return
      * @throws OpenStackException Throws exception if the operation fails.
      * @since SDNO 0.5
@@ -514,7 +514,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Creates OpenStack Vpn IpSecPolicy.
+     * Creates OpenStack VPN IpSecPolicy.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_IPSEC_POLICY}
      * <br>
@@ -530,7 +530,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Deletes OpenStack Vpn IpSecPolicy.
+     * Deletes OpenStack VPN IpSecPolicy.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_IPSEC_POLICY}/<policyId>
      * <br>
@@ -544,7 +544,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Creates OpenStack Vpn Ike Policy.
+     * Creates OpenStack VPN IkePolicy.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_IKE_POLICY}
      * <br>
@@ -559,7 +559,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Deletes OpenStack Vpn Ike Policy.
+     * Deletes OpenStack VPN IkePolicy.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_IKE_POLICY}/<policyId>
      * <br>
@@ -573,7 +573,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Creates OpenStack Vpn Service.
+     * Creates OpenStack VPN Service.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_VPN_SERVICE}
      * <br>
@@ -588,7 +588,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Deletes OpenStack Vpn Service.
+     * Deletes OpenStack VPN Service.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_VPN_SERVICE}/<serviceId>
      * <br>
@@ -602,7 +602,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Creates OpenStack Vpn IpSec site connection.
+     * Creates OpenStack VPN IpSec site connection.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_IPSEC_SITE_CONN}
      * <br>
@@ -619,7 +619,7 @@ public class OpenStackClient {
     }
 
     /**
-     * Deletes OpenStack Vpn IpSec site connection.
+     * Deletes OpenStack VPN IpSec site connection.
      * Version {@value #NETWORK_V2}
      * URI: {@value #URI_IPSEC_SITE_CONN}/<connId>
      * <br>

@@ -94,7 +94,7 @@ public class IpSecSbiService {
     }
 
     /**
-     * Delete Ipsec
+     * Delete IpSec
      * <br>
      *
      * @param underlays

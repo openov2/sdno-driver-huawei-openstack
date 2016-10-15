@@ -26,6 +26,12 @@ import org.openo.sdno.osdriverservice.openstack.client.exception.OpenStackExcept
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * JSON Utility tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class JsonUtilTest {
 
     @Test

@@ -83,7 +83,7 @@ public class OsSubnet {
      * </p>
      *
      * @author
-     * @version     SDNO 0.5  Aug 6, 2016
+     * @version     SDNO 0.5  August 6, 2016
      */
     public static class Underlays extends BaseUnderlays{
 
@@ -154,7 +154,7 @@ public class OsSubnet {
         }
 
         /**
-         * Sets subnet id
+         * Sets Subnet id
          * <br>
          *
          * @param vpcSubnetId

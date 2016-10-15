@@ -21,6 +21,12 @@ import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
 
+/**
+ * Utility class for getting JSON.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class Utils {
 
     public static String getSampleJson(@SuppressWarnings("rawtypes") Class clz, String fileName) throws IOException {

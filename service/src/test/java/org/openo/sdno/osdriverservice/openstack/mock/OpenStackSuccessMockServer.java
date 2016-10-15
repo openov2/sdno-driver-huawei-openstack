@@ -22,34 +22,39 @@ import org.openo.sdno.testframework.http.model.HttpRquestResponse;
 import org.openo.sdno.testframework.moco.MocoHttpServer;
 import org.openo.sdno.testframework.moco.responsehandler.MocoResponseHandler;
 
+/**
+ * Implementation of MocoHttpServer.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OpenStackSuccessMockServer extends MocoHttpServer {
 
-    private static String[] mockJsons =
-            new String[] {"src/test/resources/openstack_mock_jsons/auth_token.json",
-                            "src/test/resources/openstack_mock_jsons/project_create.json",
-                            "src/test/resources/openstack_mock_jsons/project_list.json",
-                            "src/test/resources/openstack_mock_jsons/project_delete.json",
-                            "src/test/resources/openstack_mock_jsons/project_create.json",
-                            "src/test/resources/openstack_mock_jsons/network_list.json",
-                            "src/test/resources/openstack_mock_jsons/network_delete.json",
-                            "src/test/resources/openstack_mock_jsons/network_create.json",
-                            "src/test/resources/openstack_mock_jsons/router_list.json",
-                            "src/test/resources/openstack_mock_jsons/router_delete.json",
-                            "src/test/resources/openstack_mock_jsons/router_create.json",
-                            "src/test/resources/openstack_mock_jsons/subnet_list.json",
-                            "src/test/resources/openstack_mock_jsons/subnet_delete.json",
-                            "src/test/resources/openstack_mock_jsons/subnet_create.json",
-                            "src/test/resources/openstack_mock_jsons/subnet_attach.json",
-                            "src/test/resources/openstack_mock_jsons/subnet_detach.json",
-                            "src/test/resources/openstack_mock_jsons/createikepolicy.json",
-                            "src/test/resources/openstack_mock_jsons/createipsecpolicy.json",
-                            "src/test/resources/openstack_mock_jsons/createvpnservice.json",
-                            "src/test/resources/openstack_mock_jsons/createipsecconn.json",
-                            "src/test/resources/openstack_mock_jsons/createikepolicy.json",
-                            "src/test/resources/openstack_mock_jsons/deleteipsecpolicy.json",
-                            "src/test/resources/openstack_mock_jsons/deleteikepolicy.json",
-                            "src/test/resources/openstack_mock_jsons/deletevpnservice.json",
-                            "src/test/resources/openstack_mock_jsons/deleteipsecconn.json"};
+    private static String[] mockJsons = new String[] {"src/test/resources/openstack_mock_jsons/auth_token.json",
+                    "src/test/resources/openstack_mock_jsons/project_create.json",
+                    "src/test/resources/openstack_mock_jsons/project_list.json",
+                    "src/test/resources/openstack_mock_jsons/project_delete.json",
+                    "src/test/resources/openstack_mock_jsons/project_create.json",
+                    "src/test/resources/openstack_mock_jsons/network_list.json",
+                    "src/test/resources/openstack_mock_jsons/network_delete.json",
+                    "src/test/resources/openstack_mock_jsons/network_create.json",
+                    "src/test/resources/openstack_mock_jsons/router_list.json",
+                    "src/test/resources/openstack_mock_jsons/router_delete.json",
+                    "src/test/resources/openstack_mock_jsons/router_create.json",
+                    "src/test/resources/openstack_mock_jsons/subnet_list.json",
+                    "src/test/resources/openstack_mock_jsons/subnet_delete.json",
+                    "src/test/resources/openstack_mock_jsons/subnet_create.json",
+                    "src/test/resources/openstack_mock_jsons/subnet_attach.json",
+                    "src/test/resources/openstack_mock_jsons/subnet_detach.json",
+                    "src/test/resources/openstack_mock_jsons/createikepolicy.json",
+                    "src/test/resources/openstack_mock_jsons/createipsecpolicy.json",
+                    "src/test/resources/openstack_mock_jsons/createvpnservice.json",
+                    "src/test/resources/openstack_mock_jsons/createipsecconn.json",
+                    "src/test/resources/openstack_mock_jsons/createikepolicy.json",
+                    "src/test/resources/openstack_mock_jsons/deleteipsecpolicy.json",
+                    "src/test/resources/openstack_mock_jsons/deleteikepolicy.json",
+                    "src/test/resources/openstack_mock_jsons/deletevpnservice.json",
+                    "src/test/resources/openstack_mock_jsons/deleteipsecconn.json"};
 
     public OpenStackSuccessMockServer() {
         super();

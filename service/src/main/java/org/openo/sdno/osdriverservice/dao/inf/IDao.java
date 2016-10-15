@@ -29,7 +29,7 @@ import org.openo.sdno.osdriverservice.openstack.client.OpenStackClient;
  *
  * @param <T>
  * @author
- * @version     SDNO 0.5  Aug 6, 2016
+ * @version SDNO 0.5 August 6, 2016
  */
 public interface IDao<T> {
 

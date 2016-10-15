@@ -20,6 +20,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+/**
+ * Client model enumeration tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class ClientModelEnumsTest {
 
     @Test

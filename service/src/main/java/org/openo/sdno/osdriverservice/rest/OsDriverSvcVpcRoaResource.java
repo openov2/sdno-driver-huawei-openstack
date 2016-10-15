@@ -59,14 +59,14 @@ public class OsDriverSvcVpcRoaResource {
     VpcNbiService service = new VpcNbiService();
 
     /**
-     * Create Vpc.<br>
+     * Create VPC.<br>
      *
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter
-     * @param vpc Vpc Object
-     * @return Vpc Object created
-     * @throws ServiceException when create Vpc failed
+     * @param vpc VPC Object
+     * @return VPC Object created
+     * @throws ServiceException when create VPC failed
      * @since SDNO 0.5
      */
     @POST
@@ -102,8 +102,8 @@ public class OsDriverSvcVpcRoaResource {
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter
-     * @param vpcId Vpc Id
-     * @throws ServiceException when delete Vpc failed
+     * @param vpcId VPC Id
+     * @throws ServiceException when delete VPC failed
      * @since SDNO 0.5
      */
     @DELETE
@@ -135,7 +135,7 @@ public class OsDriverSvcVpcRoaResource {
      * @param ctrlUuidParam Controller Id Parameter
      * @param subnet Subnet Object
      * @return Subnet Object created
-     * @throws ServiceException when create subnet failed
+     * @throws ServiceException when create Subnet failed
      * @since SDNO 0.5
      */
     @POST
@@ -167,13 +167,13 @@ public class OsDriverSvcVpcRoaResource {
     }
 
     /**
-     * Delete subnet<br>
+     * Delete Subnet<br>
      *
      * @param request HttpServletRequest Object
      * @param response HttpServletResponse Object
      * @param ctrlUuidParam Controller Id Parameter
      * @param subnetId Subnet Id
-     * @throws ServiceException when delete subnet failed
+     * @throws ServiceException when delete Subnet failed
      * @since SDNO 0.5
      */
     @DELETE

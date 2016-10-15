@@ -33,6 +33,13 @@ import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import mockit.Mock;
 import mockit.MockUp;
 
+
+/**
+ * Controller Utility tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class ControllerUtilTest {
 
     @Test

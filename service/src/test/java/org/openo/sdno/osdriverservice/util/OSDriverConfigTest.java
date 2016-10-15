@@ -20,6 +20,12 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
+/**
+ * OSDriver Configuration tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OSDriverConfigTest {
 
     @Test
