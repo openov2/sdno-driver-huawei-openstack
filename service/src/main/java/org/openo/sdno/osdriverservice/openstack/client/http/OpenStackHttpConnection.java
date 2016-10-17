@@ -173,7 +173,7 @@ public class OpenStackHttpConnection {
     private static String V3_TOKEN_BODY_DOMAIN_SCOPE =
             "{\"auth\": {\"identity\": {\"methods\": [\"password\"],\"password\": {"
                     + "\"user\": {\"name\": \"%s\",\"password\": \"%s\",\"domain\": {"
-                    + "\"name\": \"%s\"} } } }, \"scope\": {\"domain\": {\"name\": \"%s\"} } } }";
+                    + "\"id\": \"%s\"} }, \"scope\": {\"domain\": {\"id\": \"%s\"} } } } } }";
 
     /**
      * Constructor<br>
@@ -184,7 +184,6 @@ public class OpenStackHttpConnection {
      */
     public OpenStackHttpConnection(OpenStackCredentials creds) throws OpenStackException {
         try {
-            // TODO(mrkanag) Validate https
             if(creds.isSecured()) {
                 SSLContext sslContext = SSLContext.getInstance(SSLCONTEST_TLS);
                 sslContext.init(null, new TrustManager[] {new TrustAllX509TrustManager()},
