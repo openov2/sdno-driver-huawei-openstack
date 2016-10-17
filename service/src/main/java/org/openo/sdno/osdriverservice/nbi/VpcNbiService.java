@@ -153,7 +153,7 @@ public class VpcNbiService {
 
         }
 
-        return subnet;
+        return subnetLocal;
     }
 
     /**
