@@ -42,8 +42,6 @@ public class VpcSbiService {
 
     /**
      * Constructor<br>
-     * <p>
-     * </p>
      *
      * @param client OpenStackClient object to be used by the VPC service.
      * @since SDNO 0.5
@@ -59,7 +57,7 @@ public class VpcSbiService {
      * @param vpc
      * @return
      * @throws OpenStackException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public OsVpc createVpc(OsVpc vpc) throws OpenStackException {
         this.client.login();
@@ -69,7 +67,7 @@ public class VpcSbiService {
             project = this.client.getProject(vpc.getProjectName());
             vpc.getAttributes().setProjectId(project.getId(), "u");
         } catch(NotFoundException e) {
-            LOGGER.warn("Project " + vpc.getProjectName() + " not exists!!", e);
+            LOGGER.warn("Project " + vpc.getProjectName() + " not exists!!");
             project = new Project();
             project.setName(vpc.getProjectName());
             project.setDomainId(vpc.getDomainName());
@@ -85,7 +83,7 @@ public class VpcSbiService {
             router = this.client.getRounter(Utils.getName(vpc.getOverlayId()));
             vpc.getAttributes().setRouterId(router.getId(), "u");
         } catch(NotFoundException e) {
-            LOGGER.error("Router " + vpc.getOverlayId() + "does not exist", e);
+            LOGGER.error("Router " + vpc.getOverlayId() + "does not exist");
             router = new Router();
             router.setName(Utils.getName(vpc.getOverlayId()));
             router.setProjectId(project.getId());
@@ -99,20 +97,20 @@ public class VpcSbiService {
         String ip = router.getExternalGatewayInfo().getExternalFixedIps().get(0).get("ip_address");
         vpc.setGatewayIp(ip);
 
-        //TODO(mrkanag) check whether client's credential user should be given access to project created here.
+        // TODO(mrkanag) check whether client's credential user should be given access to project
+        // created here.
         this.client.logout();
 
         return vpc;
     }
 
     /**
-     *
      * <br>
      *
      * @param subnet
      * @return
      * @throws OpenStackException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public OsSubnet createSubnet(OsSubnet subnet) throws OpenStackException {
         this.client.login();
@@ -121,7 +119,7 @@ public class VpcSbiService {
             network = this.client.getNetwork(Utils.getName(subnet.getOverlayId()));
             subnet.getAttributes().setVpcNetworkId(network.getId(), "u");
         } catch(NotFoundException e) {
-            LOGGER.error("Network " + subnet.getAttributes().getVpcNetworkId() + "does not exist", e);
+            LOGGER.warn("Network " + subnet.getAttributes().getVpcNetworkId() + "does not exist");
             network = new Network();
             network.setName(Utils.getName(subnet.getOverlayId()));
             network.setAdminStateUp(true);
@@ -140,7 +138,7 @@ public class VpcSbiService {
             osSubnet = this.client.getSubnet(Utils.getName(subnet.getOverlayId()));
             subnet.getAttributes().setVpcSubnetId(osSubnet.getId(), "u");
         } catch(NotFoundException e) {
-            LOGGER.error("Subnet " + subnet.getOverlayId() + "does not exist", e);
+            LOGGER.warn("Subnet " + subnet.getOverlayId() + " does not exist");
             osSubnet = new org.openo.sdno.osdriverservice.openstack.client.model.Subnet();
             osSubnet.setName(Utils.getName(subnet.getOverlayId()));
             osSubnet.setNetworkId(network.getId());
@@ -177,7 +175,7 @@ public class VpcSbiService {
      *
      * @param underlays
      * @throws OpenStackException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public void deleteSubnet(OsSubnet.Underlays underlays) throws OpenStackException {
         this.client.login();
@@ -227,7 +225,7 @@ public class VpcSbiService {
      *
      * @param underlays
      * @throws OpenStackException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public void deleteVpc(OsVpc.Underlays underlays) throws OpenStackException {
         this.client.login();
@@ -259,8 +257,6 @@ public class VpcSbiService {
 
         /**
          * Constructor<br>
-         * <p>
-         * </p>
          *
          * @since SDNO 0.5
          */

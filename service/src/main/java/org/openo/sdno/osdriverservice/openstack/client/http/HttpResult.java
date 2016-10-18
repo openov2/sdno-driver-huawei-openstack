@@ -21,8 +21,6 @@ import java.util.Map;
 /**
  * Captures HTTP response status, body and headers.
  * <br>
- * <p>
- * </p>
  *
  * @author
  * @version SDNO 0.5 July 31, 2016

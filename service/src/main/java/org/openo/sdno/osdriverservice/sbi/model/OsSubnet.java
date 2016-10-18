@@ -77,10 +77,7 @@ public class OsSubnet {
     }
 
     /**
-     * Subnet Undrelays
-     * <br>
-     * <p>
-     * </p>
+     * Subnet Undrelays<br>
      *
      * @author
      * @version     SDNO 0.5  August 6, 2016
@@ -100,8 +97,7 @@ public class OsSubnet {
         }
 
         /**
-         * Sets project id
-         * <br>
+         * Sets project id<br>
          *
          * @param projectId
          * @param action
@@ -118,8 +114,7 @@ public class OsSubnet {
         }
 
         /**
-         * Set router id
-         * <br>
+         * Set router id<br>
          *
          * @param routerId
          * @param action
@@ -136,8 +131,7 @@ public class OsSubnet {
 
 
         /**
-         * Set VPC network id
-         * <br>
+         * Set VPC network id<br>
          *
          * @param vpcNetworkId
          * @param action
