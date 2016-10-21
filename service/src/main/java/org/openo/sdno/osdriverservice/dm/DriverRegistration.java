@@ -125,7 +125,7 @@ public class DriverRegistration implements ServletContextListener {
         restParametes.putHttpContextHeader("Content-Type", "application/json;charset=UTF-8");
         restParametes.setRawData(JsonUtil.toJson(dmRegistrationBodyMap));
 
-        LOGGER.error("Registering body: " + JsonUtil.toJson(dmRegistrationBodyMap));
+        LOGGER.info("Registering body: " + JsonUtil.toJson(dmRegistrationBodyMap));
 
         // If the registration is unsuccessful re-attempt the driver registration.
         // If the registration is successful then finish the task by canceling it.
