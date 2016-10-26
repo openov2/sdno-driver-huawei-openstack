@@ -65,7 +65,6 @@ public class VpcNbiService {
         OsVpc vpcLocal = null;
         try {
             OpenStackClient client = ControllerUtil.createOpenStackClient(ctrlUuid);
-
             VpcSbiService vpcSrv = new VpcSbiService(client);
             vpcLocal = vpcSrv.createVpc(vpc);
         } catch(OpenStackException e) {

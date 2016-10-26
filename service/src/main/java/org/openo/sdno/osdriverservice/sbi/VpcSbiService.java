@@ -97,8 +97,6 @@ public class VpcSbiService {
         String ip = router.getExternalGatewayInfo().getExternalFixedIps().get(0).get("ip_address");
         vpc.setGatewayIp(ip);
 
-        // TODO(mrkanag) check whether client's credential user should be given access to project
-        // created here.
         this.client.logout();
 
         return vpc;
@@ -119,7 +117,7 @@ public class VpcSbiService {
             network = this.client.getNetwork(Utils.getName(subnet.getOverlayId()));
             subnet.getAttributes().setVpcNetworkId(network.getId(), "u");
         } catch(NotFoundException e) {
-            LOGGER.warn("Network " + subnet.getAttributes().getVpcNetworkId() + "does not exist");
+            LOGGER.warn("Network " + subnet.getAttributes().getVpcNetworkId() + " does not exist");
             network = new Network();
             network.setName(Utils.getName(subnet.getOverlayId()));
             network.setAdminStateUp(true);

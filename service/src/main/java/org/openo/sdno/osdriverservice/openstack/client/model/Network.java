@@ -68,11 +68,9 @@ public class Network {
         this.id = id;
     }
 
-
     public String getProjectId() {
         return this.projectId;
     }
-
 
     public void setProjectId(String projectId) {
         this.projectId = projectId;
