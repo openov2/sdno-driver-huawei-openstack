@@ -60,6 +60,8 @@ public class OpenStackClient {
 
     private static final String URI_PROJECT = "/projects";
 
+    private static final String URI_AUTH_PROJECT = "/auth/projects";
+
     private static final String URI_IKE_POLICY = "/vpn/ikepolicies";
 
     private static final String URI_IPSEC_POLICY = "/vpn/ipsecpolicies";
@@ -302,7 +304,7 @@ public class OpenStackClient {
      * @since SDNO 0.5
      */
     public Project getProject(String projectName) throws OpenStackException {
-        return this.getByList(OpenStackClient.IDENTITY_V3, OpenStackClient.URI_PROJECT + "?name=" + projectName,
+        return this.getByList(OpenStackClient.IDENTITY_V3, OpenStackClient.URI_AUTH_PROJECT + "?name=" + projectName,
                 Project.class, "projects");
     }
 
