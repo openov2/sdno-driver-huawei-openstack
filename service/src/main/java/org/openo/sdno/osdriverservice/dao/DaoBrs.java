@@ -27,15 +27,14 @@ import org.openo.sdno.framework.container.util.JsonUtil;
 import org.openo.sdno.osdriverservice.dao.inf.IControllerDao;
 import org.openo.sdno.osdriverservice.dao.inf.IDao;
 import org.openo.sdno.osdriverservice.openstack.client.OpenStackCredentials;
+import org.openo.sdno.osdriverservice.util.ESRutil;
+import org.openo.sdno.osdriverservice.util.OSDriverConfig;
 import org.openo.sdno.overlayvpn.brs.invdao.CommParamDao;
 import org.openo.sdno.overlayvpn.brs.invdao.ControllerDao;
 import org.openo.sdno.overlayvpn.brs.model.AuthInfo;
 import org.openo.sdno.overlayvpn.brs.model.CommParamMO;
 import org.openo.sdno.overlayvpn.brs.model.ControllerMO;
 import org.openo.sdno.overlayvpn.inventory.sdk.util.InventoryDaoUtil;
-import org.openo.sdno.osdriverservice.util.ESRutil;
-import org.openo.sdno.osdriverservice.util.OSDriverConfig;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,6 +70,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
      * @throws ServiceException
      * @since SDNO 0.5
      */
+    @Override
     public T insert(T entity) throws ServiceException {
         return new InventoryDaoUtil<T>().getInventoryDao().insert(entity).getData();
     }
@@ -83,6 +83,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
      * @throws ServiceException
      * @since SDNO 0.5
      */
+    @Override
     public void delete(Class<T> clazz, String uuid) throws ServiceException {
         new InventoryDaoUtil<T>().getInventoryDao().delete(clazz, uuid);
     }
@@ -96,6 +97,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
      * @throws ServiceException
      * @since SDNO 0.5
      */
+    @Override
     public T get(Class<T> clazz, String uuid) throws ServiceException {
         return new InventoryDaoUtil<T>().getInventoryDao().query(clazz, uuid, null).getData();
     }
@@ -109,6 +111,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
      * @throws ServiceException
      * @since SDNO 0.5
      */
+    @Override
     public List<T> getChildren(Class<T> clazz, String overlayId) throws ServiceException {
         Map<String, Object> filter = new HashMap<String, Object>();
         filter.put("overlayId", Arrays.asList(overlayId));
@@ -150,7 +153,7 @@ public class DaoBrs<T> implements IDao<T>, IControllerDao {
         if(config.isEsrEnabled()) {
             Map<String, Object> controllerMap = ESRutil.getControllerDetails(ctrlUuid);
             //TODO(mrkanag) Remove the hard-coding if region, once ESR allows to have region as configurable
-            return controllerMap.get("region") == null ? "RegionOne" : (String)controllerMap.get("region");
+            return controllerMap.get("region") == null ? "regionOne" : (String)controllerMap.get("region");
         }
         ControllerMO controller = (new ControllerDao()).getController(ctrlUuid);
 
