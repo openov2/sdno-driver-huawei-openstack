@@ -258,7 +258,6 @@ public class OpenStackHttpConnection {
                             url = endpoints.getJSONObject(j).getString("url");
                         }
                         String region = endpoints.getJSONObject(j).getString("region_id");
-
                         this.regionCache.getEndpointCacheFor(region).addEndpoint(supportedServiceType, url);
                         break;
                     }
