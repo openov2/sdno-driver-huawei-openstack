@@ -89,6 +89,7 @@ public class VpcSbiService {
             router.setProjectId(project.getId());
             Router.ExternalGatewayInfo externalGwInfo = new Router.ExternalGatewayInfo();
             externalGwInfo.setNetworkId(publicNetwork.getId());
+            externalGwInfo.setEnableSnat(true);
             router.setExternalGatewayInfo(externalGwInfo);
             router = this.client.createRouter(router);
             vpc.getAttributes().setRouterId(router.getId(), "c");
