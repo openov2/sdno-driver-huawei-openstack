@@ -47,7 +47,7 @@ public class VpcNbiService {
      * @since SDNO 0.5
      */
     public VpcNbiService() {
-        // Default Constuctor
+        // Default Constructor
     }
 
     /**
@@ -65,7 +65,6 @@ public class VpcNbiService {
         OsVpc vpcLocal = null;
         try {
             OpenStackClient client = ControllerUtil.createOpenStackClient(ctrlUuid);
-
             VpcSbiService vpcSrv = new VpcSbiService(client);
             vpcLocal = vpcSrv.createVpc(vpc);
         } catch(OpenStackException e) {
@@ -153,11 +152,11 @@ public class VpcNbiService {
 
         }
 
-        return subnetLocal;
+        return subnet;
     }
 
     /**
-     * To delete subnet.
+     * To delete Subnet.
      * <br>
      *
      * @param ctrlUuid

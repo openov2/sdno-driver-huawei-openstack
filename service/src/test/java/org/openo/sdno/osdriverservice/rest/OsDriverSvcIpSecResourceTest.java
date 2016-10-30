@@ -25,8 +25,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.mock.web.MockHttpServletRequest;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
@@ -58,10 +56,18 @@ import org.openo.sdno.overlayvpn.model.ipsec.IpSecPolicy;
 import org.openo.sdno.overlayvpn.model.netmodel.ipsec.DcGwIpSecConnection;
 import org.openo.sdno.overlayvpn.result.ResultRsp;
 import org.openo.sdno.overlayvpn.util.check.ValidationUtil;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * OsDriverSvc IpSec Resource tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OsDriverSvcIpSecResourceTest {
 
     OsDriverSvcIpSecRoaResource roaSource = new OsDriverSvcIpSecRoaResource();
@@ -662,7 +668,7 @@ public class OsDriverSvcIpSecResourceTest {
         HttpServletRequest request = new MockHttpServletRequest();
         HttpServletResponse response = new MockHttpServletResponse();
         ResultRsp<String> result = roaSource.deleteIpSec(request, "ctrlUuidParam", "ipSecConnId");
-        assertTrue(result.getHttpCode()==200);
+        assertTrue(result.getHttpCode() == 200);
     }
 
 }

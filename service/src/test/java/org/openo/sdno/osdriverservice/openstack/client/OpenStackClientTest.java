@@ -32,6 +32,12 @@ import org.openo.sdno.osdriverservice.openstack.utils.JsonUtil;
 import mockit.Mock;
 import mockit.MockUp;
 
+/**
+ * Open Stack client tests.<br>
+ *
+ * @author
+ * @version SDNO 0.5 September 20, 2016
+ */
 public class OpenStackClientTest {
 
     OpenStackCredentials credentials = new OpenStackCredentials();
@@ -63,8 +69,9 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
+
     @Test(expected = Exception.class)
     public void testGetRounterException2() throws OpenStackException {
         new MockUp<OpenStackHttpConnection>() {
@@ -83,7 +90,7 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
 
     @Test(expected = Exception.class)
@@ -102,7 +109,7 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
 
     @Test(expected = Exception.class)
@@ -119,7 +126,7 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
 
 }

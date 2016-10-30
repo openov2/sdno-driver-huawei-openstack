@@ -24,39 +24,40 @@ import org.openo.sdno.osdriverservice.openstack.mock.GenericMockServer;
  * Driver Registration tests.<br>
  *
  * @author
- * @version SDNO 0.5 Sep 20, 2016
+ * @version SDNO 0.5 September 20, 2016
  */
 public class DriverRegistrationTest {
 
     private static GenericMockServer mockServer = new GenericMockServer();
-    private static String[] mockJsonsDriverManager ={
-                    "src/integration-test/resources/dm_mock_jsons/DMregistration.json",
-                    "src/integration-test/resources/dm_mock_jsons/DMUnregistration-vpc.json",
-                    "src/integration-test/resources/dm_mock_jsons/DMUnregistration-ipsec.json"
-            };
 
-    public static void main(String[] args){
+    private static String[] mockJsonsDriverManager =
+            {"src/integration-test/resources/dm_mock_jsons/DMregistration.json",
+                            "src/integration-test/resources/dm_mock_jsons/DMUnregistration-vpc.json",
+                            "src/integration-test/resources/dm_mock_jsons/DMUnregistration-ipsec.json"};
+
+    public static void main(String[] args) {
         mockServer.addMockJsons(mockJsonsDriverManager);
 
-        try{
+        try {
             mockServer.start();
             DriverRegistrationTest test = new DriverRegistrationTest();
             test.verifyRegistration();
             test.verifyDeRegistration();
-        } catch (ServiceException e) {
+        } catch(ServiceException e) {
             e.printStackTrace();
         }
         mockServer.stop();
     }
 
-    private void verifyRegistration() throws ServiceException{
+    private void verifyRegistration() throws ServiceException {
         DriverRegistration listener = new DriverRegistration();
         listener.contextInitialized(null);
     }
 
-    private void verifyDeRegistration() throws ServiceException{
+    private void verifyDeRegistration() throws ServiceException {
         DriverRegistration listener = new DriverRegistration();
-        listener.contextDestroyed(null);;
+        listener.contextDestroyed(null);
+        ;
     }
 
 }

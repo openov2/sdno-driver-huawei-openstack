@@ -17,7 +17,6 @@
 package org.openo.sdno.osdriverservice.util;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -33,7 +32,6 @@ import org.openo.sdno.osdriverservice.openstack.client.model.VpnPolicyLifeTime;
 import org.openo.sdno.osdriverservice.openstack.client.model.VpnService;
 import org.openo.sdno.osdriverservice.openstack.client.model.enums.DpdAction;
 import org.openo.sdno.osdriverservice.openstack.client.model.enums.IpSecVpnStatus;
-import org.openo.sdno.osdriverservice.openstack.client.model.enums.RouteMode;
 import org.openo.sdno.osdriverservice.sbi.model.OsIpSec;
 import org.openo.sdno.osdriverservice.sbi.model.OsSubnet;
 import org.openo.sdno.osdriverservice.sbi.model.OsVpc;
@@ -213,7 +211,6 @@ public class MigrateModelUtil {
      * @since  SDNO 0.5
      */
     public static OsVpc convert(Vpc vpc) {
-
         OsVpc osVpc = new OsVpc();
         osVpc.setProjectName(vpc.getProjectName());
         osVpc.setDomainName(vpc.getDomainName());

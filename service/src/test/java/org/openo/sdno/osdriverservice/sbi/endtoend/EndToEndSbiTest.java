@@ -40,8 +40,9 @@ import net.sf.json.JSONObject;
 
 /**
  * Test Both VPC and IpSec end to end.
+ * 
  * @author
- *
+ * @version SDNO 0.5 September 20, 2016
  */
 public class EndToEndSbiTest {
 
@@ -84,22 +85,20 @@ public class EndToEndSbiTest {
         subnet.getAttributes().setRouterId(vpc.getAttributes().getRouterId(), "u");
         vpcSrv.createSubnet(subnet);
         // Test the branch path where existing resources are used in SBI layer
-        if (validateBranch) {
+        if(validateBranch) {
             vpcSrv.createVpc(vpc);
             vpcSrv.createSubnet(subnet);
         }
 
-        this.checkIpSec(
-                vpc.getAttributes().getRouterId(),
-                vpc.getAttributes().getProjectId(),
+        this.checkIpSec(vpc.getAttributes().getRouterId(), vpc.getAttributes().getProjectId(),
                 subnet.getAttributes().getVpcSubnetId());
         vpcSrv.deleteSubnet(subnet.getAttributes());
         vpcSrv.deleteVpc(vpc.getAttributes());
 
         // Test the branch path where existing resources are used in SBI layer
-        if (validateBranch) {
-             vpcSrv.deleteSubnet(subnet.getAttributes());
-             vpcSrv.deleteVpc(vpc.getAttributes());
+        if(validateBranch) {
+            vpcSrv.deleteSubnet(subnet.getAttributes());
+            vpcSrv.deleteVpc(vpc.getAttributes());
         }
     }
 
