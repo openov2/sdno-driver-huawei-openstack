@@ -47,16 +47,15 @@ public class IpSecNbiService {
     /**
      * Create IpSec
      * 
-     * @param ctrlUuid
-     * @param ipsec
-     * @return
-     * @throws ServiceException
+     * @param ctrlUuid Controller UUid
+     * @param ipsec IpSec Object
+     * @return IpSec Object created
+     * @throws ServiceException when create IpSec failed
      */
     public OsIpSec createIpSec(String ctrlUuid, OsIpSec ipsec) throws ServiceException {
 
         try {
             OpenStackClient client = ControllerUtil.createOpenStackClient(ctrlUuid);
-
             IpSecSbiService vpcSrv = new IpSecSbiService(client);
             ipsec = vpcSrv.createIpSec(ipsec);
         } catch(OpenStackException e) {
@@ -74,18 +73,17 @@ public class IpSecNbiService {
     }
 
     /**
-     * Delete IpSec
+     * Delete IpSec.
      * 
-     * @param ctrlUuid
-     * @param ipSecId
-     * @throws ServiceException
+     * @param ctrlUuid Controller UUid
+     * @param ipSecId IpSec Object UUid
+     * @throws ServiceException when delete IpSec failed
      */
     public void deleteIpSec(String ctrlUuid, String ipSecId) throws ServiceException {
         List<OverlayUnderlayMapping> mappings = DaoUtil.getChildren(OverlayUnderlayMapping.class, ipSecId);
         OsIpSec.Underlays underlays = MigrateModelUtil.convert2(mappings);
         try {
             OpenStackClient client = ControllerUtil.createOpenStackClient(ctrlUuid);
-
             IpSecSbiService vpcSrv = new IpSecSbiService(client);
             vpcSrv.deleteIpSec(underlays);
         } catch(OpenStackException e) {

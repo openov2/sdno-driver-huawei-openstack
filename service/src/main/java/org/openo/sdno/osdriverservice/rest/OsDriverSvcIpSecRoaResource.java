@@ -56,6 +56,7 @@ public class OsDriverSvcIpSecRoaResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(OsDriverSvcIpSecRoaResource.class);
 
     IpSecNbiService service = new IpSecNbiService();
+
     /**
      * Create IpSec connection.<br>
      *
@@ -77,8 +78,7 @@ public class OsDriverSvcIpSecRoaResource {
         String ctrlUuid = ctrlUuidParam.substring(ctrlUuidParam.indexOf('=') + 1);
 
         for(DcGwIpSecConnection dcGwIpSecConn : dcGwIpSecConnList) {
-            //ValidationUtil.validateModel(dcGwIpSecConn);
-
+            // ValidationUtil.validateModel(dcGwIpSecConn);
             OsIpSec osIpSec = MigrateModelUtil.convert(dcGwIpSecConn);
             osIpSec = this.service.createIpSec(ctrlUuid, osIpSec);
             dcGwIpSecConn.setOperStatus(statusMap.get(osIpSec.getVpnIpSecSiteConnection().getStatus()));
@@ -115,7 +115,6 @@ public class OsDriverSvcIpSecRoaResource {
 
         return new ResultRsp<>();
     }
-
 
     private static Map<String, String> statusMap = new HashMap<>();
     static {

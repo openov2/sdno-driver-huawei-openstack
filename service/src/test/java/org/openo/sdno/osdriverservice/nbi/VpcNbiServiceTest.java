@@ -27,7 +27,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openo.baseservice.remoteservice.exception.ServiceException;
 import org.openo.sdno.osdriverservice.dao.model.OverlayUnderlayMapping;
-import org.openo.sdno.osdriverservice.nbi.VpcNbiService;
 import org.openo.sdno.osdriverservice.openstack.client.OpenStackClient;
 import org.openo.sdno.osdriverservice.openstack.client.OpenStackCredentials;
 import org.openo.sdno.osdriverservice.openstack.client.exception.OpenStackException;
@@ -99,7 +98,7 @@ public class VpcNbiServiceTest {
             }
 
             @Mock
-            public Router getRounter(String name) throws OpenStackException {
+            public Router getRouter(String name) throws OpenStackException {
                 Router router = new Router();
                 Router.ExternalGatewayInfo externalGatewayInfo = new Router.ExternalGatewayInfo();
                 List<Map<String, String>> externalFixedIps = new ArrayList<Map<String, String>>();
@@ -156,7 +155,7 @@ public class VpcNbiServiceTest {
             }
 
             @Mock
-            public Router getRounter(String name) throws OpenStackException {
+            public Router getRouter(String name) throws OpenStackException {
                 throw new OpenStackException(404, "Not found");
             }
 

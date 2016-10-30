@@ -23,8 +23,6 @@ import org.openo.sdno.overlayvpn.verify.annotation.AString;
 /**
  * Overlay to Underlay resource mapping.
  * <br>
- * <p>
- * </p>
  *
  * @author
  * @version SDNO 0.5 July 31, 2016
@@ -71,37 +69,18 @@ public class OverlayUnderlayMapping extends AbstUuidModel {
     @AString(require = true)
     private String action;
 
-    // TODO(mrkanag) Add underlay URL to the underlayId
-
     /**
      * OpenStack tenant UUID
      */
     private String underlayTenantId;
 
-    /**
-     *
-     * <br>
-     *
-     * @param string
-     * @return
-     * @since   SDNO 0.5
-     */
     @Override
-    public boolean equals(Object string){
-        //TODO(mrkanag) Fix me, when its required, now its helps to fix static error !
+    public boolean equals(Object string) {
         return true;
     }
 
-    /**
-     *
-     * <br>
-     *
-     * @return
-     * @since   SDNO 0.5
-     */
     @Override
-    public int hashCode(){
-        //TODO(mrkanag) Fix me, when its required, now its helps to fix static error !
+    public int hashCode() {
         return 1;
     }
 
@@ -109,66 +88,53 @@ public class OverlayUnderlayMapping extends AbstUuidModel {
         return this.overlayId;
     }
 
-
     public void setOverlayId(String overlayId) {
         this.overlayId = overlayId;
     }
-
 
     public String getOverlayType() {
         return this.overlayType;
     }
 
-
     public void setOverlayType(String overlayType) {
         this.overlayType = overlayType;
     }
-
 
     public String getControllerId() {
         return this.controllerId;
     }
 
-
     public void setControllerId(String controllerId) {
         this.controllerId = controllerId;
     }
-
 
     public String getUnderlayId() {
         return this.underlayId;
     }
 
-
     public void setUnderlayId(String underlayId) {
         this.underlayId = underlayId;
     }
-
 
     public String getUnderlayType() {
         return this.underlayType;
     }
 
-
     public void setUnderlayType(String underlayType) {
         this.underlayType = underlayType;
     }
-
 
     public String getUnderlayTenantId() {
         return this.underlayTenantId;
     }
 
-
     public void setUnderlayTenantId(String underlayTenantId) {
         this.underlayTenantId = underlayTenantId;
     }
 
-
     public String getAction() {
         return this.action;
     }
-
 
     public void setAction(String action) {
         this.action = action;

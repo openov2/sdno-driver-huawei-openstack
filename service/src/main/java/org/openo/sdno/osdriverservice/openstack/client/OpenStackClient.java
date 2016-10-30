@@ -438,7 +438,7 @@ public class OpenStackClient {
      * @throws OpenStackException Throws exception if the operation fails.
      * @since SDNO 0.5
      */
-    public Router getRounter(String name) throws OpenStackException {
+    public Router getRouter(String name) throws OpenStackException {
         List<Router> routers =
                 this.list(OpenStackClient.NEWORK_V2, OpenStackClient.URI_ROUTER, Router.class, "routers");
 

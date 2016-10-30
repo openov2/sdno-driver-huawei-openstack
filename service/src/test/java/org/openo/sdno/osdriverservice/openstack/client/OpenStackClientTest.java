@@ -69,8 +69,9 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
+
     @Test(expected = Exception.class)
     public void testGetRounterException2() throws OpenStackException {
         new MockUp<OpenStackHttpConnection>() {
@@ -89,7 +90,7 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
 
     @Test(expected = Exception.class)
@@ -108,7 +109,7 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
 
     @Test(expected = Exception.class)
@@ -125,7 +126,7 @@ public class OpenStackClientTest {
         };
         this.client = new OpenStackClient(this.credentials, "test");
 
-        this.client.getRounter("test123");
+        this.client.getRouter("test123");
     }
 
 }

@@ -80,7 +80,7 @@ public class VpcSbiService {
 
         Router router = null;
         try {
-            router = this.client.getRounter(Utils.getName(vpc.getOverlayId()));
+            router = this.client.getRouter(Utils.getName(vpc.getOverlayId()));
             vpc.getAttributes().setRouterId(router.getId(), "u");
         } catch(NotFoundException e) {
             LOGGER.error("Router " + vpc.getOverlayId() + "does not exist");

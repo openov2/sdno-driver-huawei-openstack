@@ -39,7 +39,6 @@ public class OsDriverRestModule extends IRoaModule {
     @Override
     protected void init() {
         LOGGER.info("START osdriverservice");
-
         DbOwerInfo.init("osdriverSvc", "osdriverdb");
     }
 }
