@@ -10,7 +10,7 @@
                 "service_url": "/openoapi/sbi-vpc/v1",
                 "support_sys": [
                     {
-                        "type": "Agile Controller-DC",
+                        "type": "openstack",
                         "version": "V200R001C00"
                     }
                 ]
@@ -19,7 +19,7 @@
                 "service_url": "/openoapi/sbi-ipsec/v1",
                 "support_sys": [
                     {
-                        "type": "Agile Controller-DC",
+                        "type": "openstack",
                         "version": "V200R001C00"
                     }
                 ]
