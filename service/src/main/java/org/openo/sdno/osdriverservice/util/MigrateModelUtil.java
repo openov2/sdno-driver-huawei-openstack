@@ -73,7 +73,7 @@ public class MigrateModelUtil {
      *
      * @param dcGwIpSecConnection
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static OsIpSec convert(DcGwIpSecConnection dcGwIpSecConnection) {
 
@@ -94,7 +94,7 @@ public class MigrateModelUtil {
      *
      * @param ikePolicy
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     private static VpnIkePolicy convert(IkePolicy ikePolicy) {
 
@@ -122,7 +122,7 @@ public class MigrateModelUtil {
      *
      * @param ipSecPolicy
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     private static VpnIpSecPolicy convert(IpSecPolicy ipSecPolicy) {
 
@@ -150,7 +150,7 @@ public class MigrateModelUtil {
      *
      * @param dcGwIpSecConnection
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     private static VpnService convert1(DcGwIpSecConnection dcGwIpSecConnection) {
 
@@ -158,7 +158,7 @@ public class MigrateModelUtil {
         vpn.setTenantId(dcGwIpSecConnection.getTenantId());
         vpn.setRouterId(dcGwIpSecConnection.getRouterId());
         vpn.setSubnetId(dcGwIpSecConnection.getSubnetId());
-        vpn.setAdminStateUp(IpSecVpnStatus.ACTIVE.getName().equals(dcGwIpSecConnection.getAdminStatus()));
+        vpn.setAdminStateUp(IpSecVpnStatus.ACTIVE.getName().equalsIgnoreCase(dcGwIpSecConnection.getAdminStatus()));
         vpn.setName(dcGwIpSecConnection.getName());
         vpn.setDescription(dcGwIpSecConnection.getName());
 
@@ -171,7 +171,7 @@ public class MigrateModelUtil {
      *
      * @param dcGwIpSecConnection
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     private static VpnIpSecSiteConnection convert2(DcGwIpSecConnection dcGwIpSecConnection) {
         String[] peerCidrArr = dcGwIpSecConnection.getPeerSubnetCidrs().split(",");
@@ -195,7 +195,7 @@ public class MigrateModelUtil {
         conn.setMtu(MTU);
         conn.setPsk(dcGwIpSecConnection.getPsk());
         conn.setInitiator(INITIATOR);
-        conn.setAdminStateUp(IpSecVpnStatus.ACTIVE.getName().equals(dcGwIpSecConnection.getAdminStatus()));
+        conn.setAdminStateUp(IpSecVpnStatus.ACTIVE.getName().equalsIgnoreCase(dcGwIpSecConnection.getAdminStatus()));
         conn.setDpd(dpd);
         conn.setSubnets(null);
 
@@ -208,7 +208,7 @@ public class MigrateModelUtil {
      *
      * @param vpc
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static OsVpc convert(Vpc vpc) {
         OsVpc osVpc = new OsVpc();
@@ -224,7 +224,7 @@ public class MigrateModelUtil {
      *
      * @param subnet
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static OsSubnet convert(Subnet subnet) {
         OsSubnet osSubnet = new OsSubnet();
@@ -239,7 +239,7 @@ public class MigrateModelUtil {
      *
      * @param mappings
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static OsVpc.Underlays convert(List<OverlayUnderlayMapping> mappings) {
         OsVpc.Underlays underlays = new OsVpc.Underlays();
@@ -262,7 +262,7 @@ public class MigrateModelUtil {
      *
      * @param mappings
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static OsSubnet.Underlays convert1(List<OverlayUnderlayMapping> mappings) {
         OsSubnet.Underlays underlays = new OsSubnet.Underlays();
@@ -287,7 +287,7 @@ public class MigrateModelUtil {
      *
      * @param mappings
      * @return
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static OsIpSec.Underlays convert2(List<OverlayUnderlayMapping> mappings) {
         OsIpSec.Underlays underlays = new OsIpSec.Underlays();
@@ -318,7 +318,7 @@ public class MigrateModelUtil {
      * @param overlayId
      * @return
      * @throws ServiceException
-     * @since  SDNO 0.5
+     * @since SDNO 0.5
      */
     public static List<OverlayUnderlayMapping> convert(Map<String, String> resources, Map<String, String> actions,
             String tenantId, String overlayType, String controllerId, String overlayId) throws ServiceException {
