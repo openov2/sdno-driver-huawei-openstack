@@ -25,6 +25,7 @@ import org.openo.sdno.osdriverservice.openstack.client.model.Router;
 import org.openo.sdno.osdriverservice.openstack.client.model.Subnet;
 import org.openo.sdno.osdriverservice.sbi.model.OsSubnet;
 import org.openo.sdno.osdriverservice.sbi.model.OsVpc;
+import org.openo.sdno.osdriverservice.util.OSNetworkConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -123,6 +124,10 @@ public class VpcSbiService {
             network.setName(Utils.getName(subnet.getOverlayId()));
             network.setAdminStateUp(true);
             network.setProjectId(subnet.getAttributes().getProjectId());
+            OSNetworkConfig networkConfig = new OSNetworkConfig();
+            network.setNetworkType(networkConfig.getNetworkType());
+            network.setPhysicalNetwork(networkConfig.getPhysicalNetwork());
+            network.setSegmentationId(networkConfig.getSegmentId());
             network = this.client.createNetwork(network);
             subnet.getAttributes().setVpcNetworkId(network.getId(), "c");
         }
