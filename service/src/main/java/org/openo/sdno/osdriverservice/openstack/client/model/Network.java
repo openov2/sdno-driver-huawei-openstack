@@ -44,6 +44,15 @@ public class Network {
     @JsonProperty("tenant_id")
     private String projectId;
 
+    @JsonProperty("provider:network_type")
+    private String networkType;
+
+    @JsonProperty("provider:physical_network")
+    private String physicalNetwork;
+
+    @JsonProperty("provider:segmentation_id")
+    private String segmentationId;
+
     public String getName() {
         return this.name;
     }
@@ -74,5 +83,29 @@ public class Network {
 
     public void setProjectId(String projectId) {
         this.projectId = projectId;
+    }
+
+    public String getNetworkType() {
+        return networkType;
+    }
+
+    public void setNetworkType(String networkType) {
+        this.networkType = networkType;
+    }
+
+    public String getPhysicalNetwork() {
+        return physicalNetwork;
+    }
+
+    public void setPhysicalNetwork(String physicalNetwork) {
+        this.physicalNetwork = physicalNetwork;
+    }
+
+    public String getSegmentationId() {
+        return segmentationId;
+    }
+
+    public void setSegmentationId(String segmentationId) {
+        this.segmentationId = segmentationId;
     }
 }
