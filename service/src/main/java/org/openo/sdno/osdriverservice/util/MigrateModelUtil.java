@@ -31,7 +31,6 @@ import org.openo.sdno.osdriverservice.openstack.client.model.VpnIpSecSiteConnect
 import org.openo.sdno.osdriverservice.openstack.client.model.VpnPolicyLifeTime;
 import org.openo.sdno.osdriverservice.openstack.client.model.VpnService;
 import org.openo.sdno.osdriverservice.openstack.client.model.enums.DpdAction;
-import org.openo.sdno.osdriverservice.openstack.client.model.enums.IpSecVpnStatus;
 import org.openo.sdno.osdriverservice.sbi.model.OsIpSec;
 import org.openo.sdno.osdriverservice.sbi.model.OsSubnet;
 import org.openo.sdno.osdriverservice.sbi.model.OsVpc;
@@ -158,7 +157,7 @@ public class MigrateModelUtil {
         vpn.setTenantId(dcGwIpSecConnection.getTenantId());
         vpn.setRouterId(dcGwIpSecConnection.getRouterId());
         vpn.setSubnetId(dcGwIpSecConnection.getSubnetId());
-        vpn.setAdminStateUp(IpSecVpnStatus.ACTIVE.getName().equalsIgnoreCase(dcGwIpSecConnection.getAdminStatus()));
+        vpn.setAdminStateUp(true);
         vpn.setName(dcGwIpSecConnection.getName());
         vpn.setDescription(dcGwIpSecConnection.getName());
 
@@ -195,7 +194,7 @@ public class MigrateModelUtil {
         conn.setMtu(MTU);
         conn.setPsk(dcGwIpSecConnection.getPsk());
         conn.setInitiator(INITIATOR);
-        conn.setAdminStateUp(IpSecVpnStatus.ACTIVE.getName().equalsIgnoreCase(dcGwIpSecConnection.getAdminStatus()));
+        conn.setAdminStateUp(true);
         conn.setDpd(dpd);
         conn.setSubnets(null);
 
