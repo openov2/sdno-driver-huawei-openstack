@@ -20,7 +20,7 @@
     <parent>
         <groupId>org.openo.sdno.driver-huawei-openstack</groupId>
         <artifactId>osdriverservice-root</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>osdriverservice-deployment</artifactId>
